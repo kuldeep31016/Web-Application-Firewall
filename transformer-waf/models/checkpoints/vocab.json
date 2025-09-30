@@ -1,0 +1,1 @@
+{"token_to_id": {"[PAD]": 0, "[UNK]": 1, "[CLS]": 2, "[SEP]": 3, "/": 4, "GET ": 5, "=": 6, "products": 7, "&": 8, "1": 9, "?": 10, "asc": 11, "page": 12, "sort": 13, "POST ": 14, "login": 15, "42": 16, "api": 17, "profile": 18, "users": 19, "123": 20}, "vocab_size": 5000}

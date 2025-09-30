@@ -1,0 +1,38 @@
+model:
+  architecture: "transformer_autoencoder"
+  vocab_size: 10000
+  embed_dim: 256
+  num_heads: 8
+  num_layers: 4
+  max_seq_length: 512
+  dropout: 0.1
+
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  epochs: 50
+  warmup_steps: 1000
+  gradient_clip: 1.0
+  early_stopping_patience: 5
+
+detection:
+  threshold: 0.75
+  batch_size: 16
+  max_latency_ms: 50
+
+ingestion:
+  log_formats: ["nginx_combined", "apache_combined"]
+  streaming_enabled: true
+  batch_interval_seconds: 300
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  rate_limit: "1000/minute"
+
+continuous_learning:
+  enabled: true
+  retrain_interval_hours: 24
+  min_new_samples: 1000
+  validation_split: 0.2

@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  waf-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./integration/nginx.conf:/etc/nginx/nginx.conf
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - waf-api
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  sample-app-1:
+    build: ./sample_apps/app1
+    ports:
+      - "8081:8080"
+
+  sample-app-2:
+    build: ./sample_apps/app2
+    ports:
+      - "8082:8080"
+
+  sample-app-3:
+    build: ./sample_apps/app3
+    ports:
+      - "8083:8080"
