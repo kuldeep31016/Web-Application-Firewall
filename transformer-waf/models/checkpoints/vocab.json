@@ -1,1 +1,1 @@
-{"token_to_id": {"[PAD]": 0, "[UNK]": 1, "[CLS]": 2, "[SEP]": 3, "/": 4, "GET ": 5, "=": 6, "products": 7, "&": 8, "1": 9, "?": 10, "asc": 11, "page": 12, "sort": 13, "POST ": 14, "login": 15, "42": 16, "api": 17, "profile": 18, "users": 19, "123": 20}, "vocab_size": 5000}
+{"token_to_id": {"[PAD]": 0, "[UNK]": 1, "[CLS]": 2, "[SEP]": 3, "/": 4, "GET ": 5, "products": 6, "=": 7, "123": 8, "42": 9, "api": 10, "profile": 11, "users": 12, "POST ": 13, "login": 14, "&": 15, "1": 16, "?": 17, "asc": 18, "page": 19, "sort": 20}, "vocab_size": 5000}
