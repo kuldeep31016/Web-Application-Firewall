@@ -1,0 +1,141 @@
+ts,label,method,path,query,anomaly_score,is_anomaly
+1759341995.9462972,benign,GET,/,{},6.527422904968262,False
+1759341995.9794078,benign,GET,/search,"{""q"": ""hello""}",7.557690143585205,False
+1759341996.018355,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341996.0562901,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341996.0919821,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341996.1329799,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341996.17116,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341996.20672,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341996.2487612,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341996.283359,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341996.318945,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341996.354708,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341996.3897111,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341996.417364,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341996.4538171,benign,GET,/,{},6.527422904968262,False
+1759341996.498195,benign,GET,/search,"{""q"": ""home""}",7.557690143585205,False
+1759341996.534979,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341996.564277,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341996.594385,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341996.632451,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341996.664233,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341996.696734,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341996.730474,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341996.773741,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341996.804497,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341996.851685,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341996.898495,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341996.932843,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341996.9721751,benign,GET,/,{},6.527422904968262,False
+1759341997.003252,benign,GET,/search,"{""q"": ""products""}",7.557690143585205,False
+1759341997.037646,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341997.077496,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341997.116101,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341997.169806,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341997.208394,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341997.237707,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341997.273552,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341997.329519,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341997.357743,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341997.383669,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341997.414773,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341997.4438558,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341997.475638,benign,GET,/,{},6.527422904968262,False
+1759341997.504413,benign,GET,/search,"{""q"": ""profile""}",7.557690143585205,False
+1759341997.5385878,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341997.5886762,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341997.650578,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341997.696584,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341997.7430122,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341997.797379,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341997.853964,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341997.905219,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341997.965815,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341998.008024,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341998.0462,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341998.084668,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341998.120055,benign,GET,/,{},6.527422904968262,False
+1759341998.147347,benign,GET,/search,"{""q"": ""about""}",7.557690143585205,False
+1759341998.180224,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341998.2184231,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341998.2496169,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341998.27171,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341998.297977,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341998.330703,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341998.395741,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341998.440511,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341998.47399,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341998.523653,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341998.588384,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341998.650717,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341998.6921148,benign,GET,/,{},6.527422904968262,False
+1759341998.7417018,benign,GET,/search,"{""q"": ""contact""}",7.557690143585205,False
+1759341998.7937531,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341998.882615,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341998.948357,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341999.036057,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341999.170725,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341999.2655091,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341999.337753,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341999.375954,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759341999.446718,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759341999.4876301,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759341999.522235,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759341999.564019,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759341999.5916932,benign,GET,/,{},6.527422904968262,False
+1759341999.62706,benign,GET,/search,"{""q"": ""search""}",7.557690143585205,False
+1759341999.656241,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759341999.710641,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759341999.764977,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759341999.854849,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759341999.88925,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759341999.917495,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759341999.950975,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759341999.981387,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759342000.0151832,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759342000.048212,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759342000.08622,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759342000.123326,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759342000.156356,benign,GET,/,{},6.527422904968262,False
+1759342000.1979961,benign,GET,/search,"{""q"": ""welcome""}",7.557690143585205,False
+1759342000.229692,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759342000.257062,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759342000.28458,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759342000.3255901,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759342000.3726861,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759342000.41743,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759342000.457922,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759342000.496553,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759342000.5447402,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759342000.614511,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759342000.709356,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759342000.775895,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759342000.852972,benign,GET,/,{},6.527422904968262,False
+1759342000.899091,benign,GET,/search,"{""q"": ""shop""}",7.557690143585205,False
+1759342000.950621,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759342000.9965608,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759342001.078388,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759342001.147897,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759342001.189198,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759342001.253751,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759342001.286853,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759342001.315259,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759342001.3486311,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759342001.385483,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759342001.4263191,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759342001.452343,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
+1759342001.479441,benign,GET,/,{},6.527422904968262,False
+1759342001.507391,benign,GET,/search,"{""q"": ""cart""}",7.557690143585205,False
+1759342001.532366,benign,GET,/products,"{""page"": ""1"", ""sort"": ""asc""}",8.101608276367188,True
+1759342001.56966,benign,GET,/api/users/1/profile,{},8.012778282165527,True
+1759342001.604039,attack,GET,/search,"{""q"": ""' OR '1'='1""}",8.230093955993652,True
+1759342001.638657,attack,GET,/search,"{""q"": ""'; DROP TABLE users--""}",8.101608276367188,True
+1759342001.671354,attack,GET,/search,"{""q"": ""' UNION SELECT * FROM passwords--""}",8.181208610534668,True
+1759342001.7024808,attack,GET,/search,"{""q"": ""<script>alert('XSS')</script>""}",8.459139823913574,True
+1759342001.74913,attack,GET,/search,"{""q"": ""<img src=x onerror=alert('XSS')>""}",8.404008865356445,True
+1759342001.783475,attack,GET,/search,"{""q"": ""javascript:alert('XSS')""}",8.230093955993652,True
+1759342001.816711,attack,GET,/search,"{""q"": ""../../etc/passwd""}",8.285463333129883,True
+1759342001.869503,attack,GET,/search,"{""q"": ""....//....//etc/passwd""}",8.496197700500488,True
+1759342001.920566,attack,GET,/search,"{""q"": ""..%2F..%2Fetc%2Fpasswd""}",8.181208610534668,True
+1759342001.9630048,attack,GET,/search,"{""q"": ""; ls -la""}",8.012778282165527,True
