@@ -46,30 +46,30 @@ def _rotate_versions(new_path: str) -> None:
     shutil.copyfile(new_path, best)
 
 
-def _train_incremental(checkpoint_in: str, checkpoint_out: str) -> None:
-    """Fine-tune quickly on existing synthetic dataset using scripts/train_quick.py."""
-    # We reuse the quick trainer with few epochs
+def _train_incremental(checkpoint_in: str, checkpoint_out: str, delta_path: str | None = None) -> None:
+    """Fine-tune on delta benign data only if provided; else do a short full fine-tune."""
     import subprocess
-    subprocess.check_call([
-        "python",
-        "-m",
-        "src.models.inference"  # no-op import to ensure path; then run script
-    ], cwd=os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-    # Actually call training script
-    subprocess.check_call([
-        "python",
-        "scripts/train_quick.py",
-        "--epochs",
-        "2",
-        "--batch",
-        "64",
-    ], cwd=os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-    # Copy the produced checkpoint as next version
-    src = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "models", "checkpoints", "best.pt"))
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    if delta_path and os.path.exists(os.path.join(root, delta_path)):
+        # Temporarily swap train.jsonl with delta for a short run
+        # The quick trainer reads data/train/train.jsonl, so point it to delta by copying
+        tmp_backup = os.path.join(root, "data", "train", "_backup_train.jsonl")
+        train_file = os.path.join(root, "data", "train", "train.jsonl")
+        if os.path.exists(train_file):
+            shutil.copyfile(train_file, tmp_backup)
+        shutil.copyfile(os.path.join(root, delta_path), train_file)
+        try:
+            subprocess.check_call(["python", "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
+        finally:
+            if os.path.exists(tmp_backup):
+                shutil.copyfile(tmp_backup, train_file)
+    else:
+        subprocess.check_call(["python", "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
+    src = os.path.join(root, "models", "checkpoints", "best.pt")
     shutil.copyfile(src, checkpoint_out)
 
 
-def incremental_retrain() -> None:
+def incremental_retrain(delta: str | None = None) -> None:
     if STATE["running"]:
         return
     STATE["running"] = True
@@ -84,7 +84,7 @@ def incremental_retrain() -> None:
         STATE["last_status"] = "training"
         next_version = len(_list_versions()) + 1
         out_path = os.path.join(models_dir, f"model_v{next_version}.pt")
-        _train_incremental(current, out_path)
+        _train_incremental(current, out_path, delta_path=delta)
         STATE["last_status"] = "validating"
         # TODO: add real validation
         _rotate_versions(out_path)
@@ -98,10 +98,10 @@ def incremental_retrain() -> None:
 
 
 @app.post("/retrain")
-async def trigger_retraining(background_tasks: BackgroundTasks):
+async def trigger_retraining(background_tasks: BackgroundTasks, delta_path: str | None = None):
     if STATE["running"]:
         return {"status": "already_running"}
-    background_tasks.add_task(incremental_retrain)
+    background_tasks.add_task(incremental_retrain, delta=delta_path)
     return {"status": "started"}
 
 

@@ -14,6 +14,8 @@ from ..models.inference import InferenceEngine
 from ..preprocessing.tokenizer import HTTPRequestTokenizer
 from ..utils.config import load_config, CONFIG_PATH
 from ..utils.logger import logger, setup_logging
+import json as _json
+from pathlib import Path as _Path
 
 
 class DetectionRequest(BaseModel):
@@ -80,6 +82,17 @@ def _rate_limit(request: Request) -> None:
     bucket.append(now)
 
 
+def _append_detection_log(record: Dict[str, object]) -> None:
+    try:
+        logs_dir = _Path(os.path.dirname(os.path.dirname(__file__))) / ".." / "logs" / "detection_logs"
+        logs_dir = logs_dir.resolve()
+        os.makedirs(str(logs_dir), exist_ok=True)
+        with open(str(logs_dir / "detections.jsonl"), "a", encoding="utf-8") as f:
+            f.write(_json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 @app.on_event("startup")
 async def load_model() -> None:  # noqa: D401
     setup_logging(os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "logs", "detection_logs"))
@@ -130,12 +143,22 @@ async def detect_anomaly(payload: DetectionRequest, request: Request, _: bool = 
         raise HTTPException(status_code=503, detail="Engine not ready")
     METRICS["requests"] += 1
     if ENGINE.model is None:
-        # Fallback behavior when model missing: mark as not anomaly
         rid = str(uuid.uuid4())
-        return DetectionResponse(is_anomaly=False, confidence=0.0, anomaly_score=0.0, timestamp=str(time.time()), request_id=rid)
+        resp = DetectionResponse(is_anomaly=False, confidence=0.0, anomaly_score=0.0, timestamp=str(time.time()), request_id=rid)
+        _append_detection_log({
+            "request_id": rid,
+            "method": payload.method,
+            "path": payload.path,
+            "query_params": payload.query_params,
+            "headers": payload.headers,
+            "is_anomaly": resp.is_anomaly,
+            "anomaly_score": resp.anomaly_score,
+            "confidence": resp.confidence,
+            "ts": resp.timestamp,
+        })
+        return resp
     max_len_cfg = int(CONFIG.get("model", {}).get("max_seq_length", 512))
     if ENGINE.model is not None:
-        # Cap by model's positional embedding size
         max_len_model = int(getattr(getattr(ENGINE.model, "positional", None), "num_embeddings", max_len_cfg))
         max_len = min(max_len_cfg, max_len_model)
     else:
@@ -145,13 +168,25 @@ async def detect_anomaly(payload: DetectionRequest, request: Request, _: bool = 
     rid = str(uuid.uuid4())
     if result["is_anomaly"]:  # type: ignore[index]
         METRICS["anomalies"] += 1
-    return DetectionResponse(
+    resp = DetectionResponse(
         is_anomaly=bool(result["is_anomaly"]),  # type: ignore[index]
         confidence=float(result["confidence"]),  # type: ignore[index]
         anomaly_score=float(result["anomaly_score"]),  # type: ignore[index]
         timestamp=str(time.time()),
         request_id=rid,
     )
+    _append_detection_log({
+        "request_id": rid,
+        "method": payload.method,
+        "path": payload.path,
+        "query_params": payload.query_params,
+        "headers": payload.headers,
+        "is_anomaly": resp.is_anomaly,
+        "anomaly_score": resp.anomaly_score,
+        "confidence": resp.confidence,
+        "ts": resp.timestamp,
+    })
+    return resp
 
 
 @app.post("/detect/batch")
@@ -162,16 +197,18 @@ async def detect_batch(requests: List[DetectionRequest], request: Request, _: bo
         raise HTTPException(status_code=503, detail="Engine not ready")
     METRICS["requests"] += len(requests)
     if ENGINE.model is None:
-        return [
-            {
+        out = []
+        for _ in requests:
+            rec = {
                 "is_anomaly": False,
                 "confidence": 0.0,
                 "anomaly_score": 0.0,
                 "timestamp": str(time.time()),
                 "request_id": str(uuid.uuid4()),
             }
-            for _ in requests
-        ]
+            out.append(rec)
+            _append_detection_log({"request_id": rec["request_id"], "batch": True, **rec})
+        return out
     max_len_cfg = int(CONFIG.get("model", {}).get("max_seq_length", 512))
     if ENGINE.model is not None:
         max_len_model = int(getattr(getattr(ENGINE.model, "positional", None), "num_embeddings", max_len_cfg))
@@ -189,15 +226,15 @@ async def detect_batch(requests: List[DetectionRequest], request: Request, _: bo
     for r in results:
         if r["is_anomaly"]:  # type: ignore[index]
             METRICS["anomalies"] += 1
-        out.append(
-            {
-                "is_anomaly": bool(r["is_anomaly"]),  # type: ignore[index]
-                "confidence": float(r["confidence"]),  # type: ignore[index]
-                "anomaly_score": float(r["anomaly_score"]),  # type: ignore[index]
-                "timestamp": str(time.time()),
-                "request_id": str(uuid.uuid4()),
-            }
-        )
+        rec = {
+            "is_anomaly": bool(r["is_anomaly"]),  # type: ignore[index]
+            "confidence": float(r["confidence"]),  # type: ignore[index]
+            "anomaly_score": float(r["anomaly_score"]),  # type: ignore[index]
+            "timestamp": str(time.time()),
+            "request_id": str(uuid.uuid4()),
+        }
+        out.append(rec)
+        _append_detection_log({"request_id": rec["request_id"], "batch": True, **rec})
     return out
 
 
