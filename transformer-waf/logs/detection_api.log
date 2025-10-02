@@ -1,0 +1,62 @@
+INFO:     Started server process [93100]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55954 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55972 - "GET /health HTTP/1.1" 200 OK
+/Users/kuldeepraj/SIH Part 2/transformer-waf/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py:515: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/NestedTensorImpl.cpp:182.)
+  output = torch._nested_tensor_from_mask(
+INFO:     127.0.0.1:56016 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56043 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56047 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56049 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56052 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56054 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56057 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56059 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56061 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56064 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56066 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56068 - "POST /detect/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56071 - "GET /threshold HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:56073 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56086 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56088 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56090 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56092 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56094 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56096 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56098 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56100 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56102 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56104 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56106 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56108 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56110 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56112 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56114 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56116 - "POST /threshold?value=8.984797477722168 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56124 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56126 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56128 - "GET /threshold HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:56132 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56136 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56138 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56141 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56143 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56145 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56147 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56149 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56151 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56153 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56155 - "POST /detect/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /threshold HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:56159 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56263 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56265 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56267 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56269 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56282 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56284 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56286 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56288 - "POST /detect HTTP/1.1" 200 OK
