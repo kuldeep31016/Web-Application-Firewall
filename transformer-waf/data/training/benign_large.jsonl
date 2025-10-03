@@ -1,0 +1,602 @@
+{"request": "GET /products id=123 type=product"}
+{"request": "PUT /dashboard {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /login {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /checkout id=123 type=product"}
+{"request": "PATCH /category {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /upload {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /settings id=123 type=product"}
+{"request": "PUT /api/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /api/auth"}
+{"request": "GET /api/data search=technology category=electronics"}
+{"request": "GET /edit id=123 type=product"}
+{"request": "PUT /api/data {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /api/data {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /admin/settings"}
+{"request": "GET /api/data"}
+{"request": "POST /admin/reports {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /details {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /media"}
+{"request": "GET /profile id=123 type=product"}
+{"request": "PUT /api/products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /"}
+{"request": "POST /documents"}
+{"request": "PUT /checkout {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /cart {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /api/data {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /services {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /contact"}
+{"request": "PUT /images {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /images"}
+{"request": "DELETE /api/orders"}
+{"request": "POST /help"}
+{"request": "GET /admin"}
+{"request": "PUT /receipt {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /view {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /api/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /about {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /search {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /dashboard search=technology category=electronics"}
+{"request": "GET /media page=1 limit=10"}
+{"request": "PATCH /invoice {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /download {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /checkout {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /upload"}
+{"request": "GET /files page=1 limit=10"}
+{"request": "DELETE /documents"}
+{"request": "PUT /products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /order {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /upload {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /download"}
+{"request": "GET /category page=1 limit=10"}
+{"request": "GET /admin id=123 type=product"}
+{"request": "PUT /documents"}
+{"request": "PATCH /documents {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /search {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /invoice page=1 limit=10"}
+{"request": "GET / page=1 limit=10"}
+{"request": "PATCH /admin/reports {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /upload {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /login"}
+{"request": "POST /api/data"}
+{"request": "PUT /news {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /dashboard {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /api/users"}
+{"request": "GET /media id=123 type=product"}
+{"request": "GET /details search=technology category=electronics"}
+{"request": "PATCH /api/auth {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /admin/users"}
+{"request": "PATCH /cart"}
+{"request": "POST /checkout {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /admin/users id=123 type=product"}
+{"request": "PUT /products"}
+{"request": "POST /documents {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /browse"}
+{"request": "DELETE /invoice"}
+{"request": "GET /order page=1 limit=10"}
+{"request": "DELETE /admin"}
+{"request": "POST /blog {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /download"}
+{"request": "PATCH /checkout {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /help"}
+{"request": "GET /api/auth page=1 limit=10"}
+{"request": "GET /checkout"}
+{"request": "GET /edit search=technology category=electronics"}
+{"request": "POST /files {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /news {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /browse {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /media {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /admin/reports"}
+{"request": "POST /files"}
+{"request": "GET /faq id=123 type=product"}
+{"request": "PATCH /payment"}
+{"request": "POST /about"}
+{"request": "PUT /admin/reports {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /images {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /files {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /order"}
+{"request": "GET /api/data page=1 limit=10"}
+{"request": "PATCH /view"}
+{"request": "GET /admin/reports id=123 type=product"}
+{"request": "GET /upload"}
+{"request": "POST /help {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /edit"}
+{"request": "DELETE /login"}
+{"request": "GET /about"}
+{"request": "GET /login page=1 limit=10"}
+{"request": "GET /download search=technology category=electronics"}
+{"request": "POST /dashboard"}
+{"request": "PATCH /details"}
+{"request": "GET /receipt search=technology category=electronics"}
+{"request": "PATCH /payment {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /blog {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /login {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /files {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /search search=technology category=electronics"}
+{"request": "POST /media {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /admin/reports {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /checkout"}
+{"request": "PATCH /search {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /view"}
+{"request": "GET /cart search=technology category=electronics"}
+{"request": "GET /home page=1 limit=10"}
+{"request": "GET /api/data id=123 type=product"}
+{"request": "POST /order {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /view"}
+{"request": "GET /view page=1 limit=10"}
+{"request": "GET /admin search=technology category=electronics"}
+{"request": "PUT /payment {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /help id=123 type=product"}
+{"request": "GET /contact id=123 type=product"}
+{"request": "PUT /admin/settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /news search=technology category=electronics"}
+{"request": "POST /profile"}
+{"request": "PATCH /media {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /receipt page=1 limit=10"}
+{"request": "PATCH /api/products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /admin {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /documents page=1 limit=10"}
+{"request": "PATCH /register {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /news"}
+{"request": "PATCH /edit"}
+{"request": "PATCH /images"}
+{"request": "POST /receipt {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /profile {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /download id=123 type=product"}
+{"request": "POST /contact {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /order {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /api/auth"}
+{"request": "DELETE /images"}
+{"request": "PATCH /register"}
+{"request": "GET /documents id=123 type=product"}
+{"request": "GET /home search=technology category=electronics"}
+{"request": "GET /cart"}
+{"request": "PATCH /payment {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /payment page=1 limit=10"}
+{"request": "GET /files"}
+{"request": "GET /api/orders search=technology category=electronics"}
+{"request": "PATCH /about {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /order"}
+{"request": "GET /details"}
+{"request": "POST /receipt"}
+{"request": "PUT /receipt {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /payment"}
+{"request": "PUT /blog {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /edit {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /products search=technology category=electronics"}
+{"request": "PATCH /home"}
+{"request": "PUT /images"}
+{"request": "GET /news"}
+{"request": "GET /category id=123 type=product"}
+{"request": "PUT /edit {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /register id=123 type=product"}
+{"request": "PUT /register {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /admin"}
+{"request": "POST /receipt {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /admin/reports"}
+{"request": "PUT /documents {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /admin/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /products page=1 limit=10"}
+{"request": "PUT /edit {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /search"}
+{"request": "PATCH /api/orders {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /download {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /api/data"}
+{"request": "GET /payment search=technology category=electronics"}
+{"request": "PATCH /admin/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /order {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /order search=technology category=electronics"}
+{"request": "GET /profile page=1 limit=10"}
+{"request": "GET /register"}
+{"request": "PATCH / {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /edit {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /profile"}
+{"request": "PATCH /documents {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /download {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /view {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST / {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /blog id=123 type=product"}
+{"request": "POST /api/orders {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /about"}
+{"request": "PATCH /profile {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /search"}
+{"request": "POST /api/orders"}
+{"request": "PATCH /faq {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT / {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /images {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /payment {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /dashboard"}
+{"request": "PUT /cart"}
+{"request": "PATCH /api/auth {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /order"}
+{"request": "POST /view {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /item {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /receipt"}
+{"request": "DELETE /admin/reports"}
+{"request": "POST /admin/users"}
+{"request": "GET /dashboard id=123 type=product"}
+{"request": "PATCH /api/products"}
+{"request": "PATCH /media"}
+{"request": "PUT /register {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /details id=123 type=product"}
+{"request": "POST /documents {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /item {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /login"}
+{"request": "GET /blog"}
+{"request": "POST /admin"}
+{"request": "PATCH /images {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /receipt"}
+{"request": "DELETE /blog"}
+{"request": "POST /admin/reports"}
+{"request": "DELETE /api/data"}
+{"request": "GET /admin/reports page=1 limit=10"}
+{"request": "GET /details page=1 limit=10"}
+{"request": "PUT /admin/settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /api/data {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /browse {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /admin/reports"}
+{"request": "PUT /admin/settings"}
+{"request": "PUT /details"}
+{"request": "PATCH /invoice"}
+{"request": "PUT /payment {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /dashboard {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /cart page=1 limit=10"}
+{"request": "GET /contact page=1 limit=10"}
+{"request": "GET /browse id=123 type=product"}
+{"request": "PUT /admin/users"}
+{"request": "POST /register {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /services"}
+{"request": "POST /images {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /checkout page=1 limit=10"}
+{"request": "PATCH /home {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /blog page=1 limit=10"}
+{"request": "PATCH /blog"}
+{"request": "GET /category"}
+{"request": "PUT /files"}
+{"request": "POST /api/data {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /view"}
+{"request": "PATCH /news"}
+{"request": "PATCH /blog {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /services search=technology category=electronics"}
+{"request": "PATCH /checkout"}
+{"request": "PATCH / {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /home"}
+{"request": "PUT /upload {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /help {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /checkout search=technology category=electronics"}
+{"request": "GET /upload search=technology category=electronics"}
+{"request": "PATCH /admin/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /services"}
+{"request": "POST /contact"}
+{"request": "PUT /cart {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /admin page=1 limit=10"}
+{"request": "PUT /item {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /invoice search=technology category=electronics"}
+{"request": "GET /images id=123 type=product"}
+{"request": "PATCH /faq"}
+{"request": "GET /api/orders page=1 limit=10"}
+{"request": "PATCH /api/data"}
+{"request": "GET /help search=technology category=electronics"}
+{"request": "PATCH /news {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /services page=1 limit=10"}
+{"request": "PATCH /item {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /"}
+{"request": "PATCH /item"}
+{"request": "PUT /item"}
+{"request": "GET /dashboard"}
+{"request": "POST /edit"}
+{"request": "GET /invoice"}
+{"request": "GET /settings page=1 limit=10"}
+{"request": "GET /images page=1 limit=10"}
+{"request": "PUT /settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /faq search=technology category=electronics"}
+{"request": "PATCH /profile"}
+{"request": "GET /admin/settings"}
+{"request": "GET /"}
+{"request": "PUT /admin"}
+{"request": "GET / search=technology category=electronics"}
+{"request": "PUT /profile {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /api/auth {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /search page=1 limit=10"}
+{"request": "GET /faq"}
+{"request": "PUT /help"}
+{"request": "GET /view"}
+{"request": "PUT /api/orders {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /files search=technology category=electronics"}
+{"request": "GET /about search=technology category=electronics"}
+{"request": "PUT /register"}
+{"request": "PATCH /download {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /upload page=1 limit=10"}
+{"request": "GET /register page=1 limit=10"}
+{"request": "PATCH /home {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /edit"}
+{"request": "PATCH /search"}
+{"request": "PATCH /admin {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /home id=123 type=product"}
+{"request": "POST /api/products"}
+{"request": "GET /help"}
+{"request": "PUT /settings"}
+{"request": "PUT /api/products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /invoice {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /admin {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /images search=technology category=electronics"}
+{"request": "PUT /checkout"}
+{"request": "GET /api/orders id=123 type=product"}
+{"request": "GET /download page=1 limit=10"}
+{"request": "GET /item"}
+{"request": "PUT /dashboard {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /faq {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /browse page=1 limit=10"}
+{"request": "PUT /browse {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /contact {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /help {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /register {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /documents"}
+{"request": "PATCH /faq {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /order id=123 type=product"}
+{"request": "PATCH /invoice {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /search {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /order {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /faq"}
+{"request": "GET /admin/settings page=1 limit=10"}
+{"request": "PUT /api/orders"}
+{"request": "POST /item {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /blog {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /news"}
+{"request": "PATCH /help {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /login"}
+{"request": "DELETE /admin/users"}
+{"request": "GET /edit page=1 limit=10"}
+{"request": "DELETE /products"}
+{"request": "DELETE /about"}
+{"request": "PATCH /settings"}
+{"request": "GET /item search=technology category=electronics"}
+{"request": "GET /images"}
+{"request": "PATCH /api/orders {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /api/products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /api/auth {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /contact {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /receipt {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /details"}
+{"request": "PUT /api/orders {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /checkout {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /login search=technology category=electronics"}
+{"request": "PUT /cart {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /cart id=123 type=product"}
+{"request": "PATCH /about {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /about id=123 type=product"}
+{"request": "DELETE /item"}
+{"request": "POST /category {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /api/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /documents"}
+{"request": "PATCH /admin {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /item page=1 limit=10"}
+{"request": "PUT /invoice {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /media"}
+{"request": "DELETE /payment"}
+{"request": "PUT /news"}
+{"request": "PATCH /contact"}
+{"request": "POST /services {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /api/products"}
+{"request": "POST / {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /news id=123 type=product"}
+{"request": "PUT /api/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /profile"}
+{"request": "PUT /view {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /faq {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /view {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /api/orders {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /images {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /register"}
+{"request": "DELETE /files"}
+{"request": "POST /settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /news {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /register search=technology category=electronics"}
+{"request": "POST /home {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /upload {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /admin/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /search id=123 type=product"}
+{"request": "PUT /home {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /help {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /cart {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /home"}
+{"request": "POST /faq"}
+{"request": "POST /admin {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /services"}
+{"request": "PUT /products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /login {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /download"}
+{"request": "POST /profile {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /faq {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /cart {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /login id=123 type=product"}
+{"request": "PATCH /api/users"}
+{"request": "PUT /download"}
+{"request": "PATCH /login {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /admin/users search=technology category=electronics"}
+{"request": "GET /products"}
+{"request": "PUT /profile {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /dashboard {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /services {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /category"}
+{"request": "PUT /about"}
+{"request": "GET /api/orders"}
+{"request": "POST /products"}
+{"request": "POST /admin/settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /api/users"}
+{"request": "POST /services {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /"}
+{"request": "GET /services id=123 type=product"}
+{"request": "PUT /admin/reports {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /details {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /faq"}
+{"request": "POST /edit {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /search {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /payment"}
+{"request": "PUT /invoice"}
+{"request": "PATCH /api/users {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /services"}
+{"request": "DELETE /upload"}
+{"request": "POST /item"}
+{"request": "PATCH /upload {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /dashboard"}
+{"request": "PATCH /services {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET / id=123 type=product"}
+{"request": "POST /home {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /admin/settings"}
+{"request": "POST /payment {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /contact {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /login {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /category {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /help {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /details {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /about {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /api/auth {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /browse"}
+{"request": "PUT /files {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /api/users"}
+{"request": "POST /news {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /edit"}
+{"request": "PATCH /api/orders"}
+{"request": "PATCH /admin/settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /checkout"}
+{"request": "GET /api/products id=123 type=product"}
+{"request": "POST /cart {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /payment"}
+{"request": "GET /api/products"}
+{"request": "PATCH /admin/users"}
+{"request": "DELETE /receipt"}
+{"request": "POST /api/auth {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /faq page=1 limit=10"}
+{"request": "PATCH /download"}
+{"request": "POST /dashboard {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /admin/settings id=123 type=product"}
+{"request": "PUT /contact"}
+{"request": "POST /api/auth"}
+{"request": "PUT /admin {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /api/users"}
+{"request": "POST /blog"}
+{"request": "DELETE /media"}
+{"request": "PUT /category {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /admin/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /blog search=technology category=electronics"}
+{"request": "GET /browse search=technology category=electronics"}
+{"request": "PUT /services"}
+{"request": "GET /settings search=technology category=electronics"}
+{"request": "PUT /blog"}
+{"request": "PUT /category"}
+{"request": "PUT /"}
+{"request": "PATCH /api/products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /media {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /api/auth search=technology category=electronics"}
+{"request": "PATCH /login"}
+{"request": "GET /profile"}
+{"request": "DELETE /cart"}
+{"request": "GET /help page=1 limit=10"}
+{"request": "POST /api/products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /contact {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /help"}
+{"request": "DELETE /contact"}
+{"request": "DELETE /register"}
+{"request": "POST /download {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /dashboard page=1 limit=10"}
+{"request": "POST /admin/settings"}
+{"request": "PATCH /settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /category {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /download {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /search"}
+{"request": "GET /upload id=123 type=product"}
+{"request": "PATCH /checkout {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /category"}
+{"request": "PUT /home {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT / {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /api/products search=technology category=electronics"}
+{"request": "PATCH /dashboard"}
+{"request": "POST /view {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /admin/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /home"}
+{"request": "PATCH /products"}
+{"request": "PATCH /files {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /api/users id=123 type=product"}
+{"request": "POST /cart"}
+{"request": "PUT /documents {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /about page=1 limit=10"}
+{"request": "PUT /contact {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /search"}
+{"request": "GET /view search=technology category=electronics"}
+{"request": "PATCH /receipt"}
+{"request": "GET /documents search=technology category=electronics"}
+{"request": "GET /admin/settings search=technology category=electronics"}
+{"request": "GET /receipt id=123 type=product"}
+{"request": "GET /files id=123 type=product"}
+{"request": "PATCH /media {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /details {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /news {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /order"}
+{"request": "PUT /about {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /browse"}
+{"request": "PATCH /files"}
+{"request": "PUT /category {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /api/auth"}
+{"request": "PATCH /browse {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /details {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PUT /details {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /faq {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /media search=technology category=electronics"}
+{"request": "POST /browse {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /browse"}
+{"request": "GET /api/auth id=123 type=product"}
+{"request": "PUT /api/products"}
+{"request": "POST /browse {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /admin/settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /invoice {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "DELETE /settings"}
+{"request": "PUT /services {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /search {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /receipt {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "POST /admin/reports {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PATCH /upload"}
+{"request": "GET /settings"}
+{"request": "GET /profile search=technology category=electronics"}
+{"request": "PATCH /item {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /profile {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /admin/reports search=technology category=electronics"}
+{"request": "DELETE /api/auth"}
+{"request": "GET /view id=123 type=product"}
+{"request": "PATCH /register {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /media"}
+{"request": "GET /news page=1 limit=10"}
+{"request": "GET /category search=technology category=electronics"}
+{"request": "GET /admin/users page=1 limit=10"}
+{"request": "PATCH /products {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /edit {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /api/users page=1 limit=10"}
+{"request": "PUT /browse"}
+{"request": "PUT /settings {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /blog {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /invoice {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "GET /invoice id=123 type=product"}
+{"request": "POST /api/users {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "PUT /order"}
+{"request": "GET /payment id=123 type=product"}
+{"request": "POST /details"}
+{"request": "PUT /api/data {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /api/products page=1 limit=10"}
+{"request": "POST /upload"}
+{"request": "PUT /media {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /login {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /invoice"}
+{"request": "GET /home"}
+{"request": "GET /api/users search=technology category=electronics"}
+{"request": "POST /admin/settings {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "PATCH /order {\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}"}
+{"request": "GET /contact search=technology category=electronics"}
+{"request": "POST /about {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "POST /settings"}
+{"request": "POST /files {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}
+{"request": "DELETE /category"}
+{"request": "GET /item id=123 type=product"}
+{"request": "POST /products {\"name\": \"John Doe\", \"email\": \"john@example.com\"}"}

@@ -1,0 +1,119 @@
+{"request": {"method": "GET", "path": "/", "query_params": {}, "headers": {"User-Agent": "Mozilla/5.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/", "query_params": {}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/", "query_params": {}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/", "query_params": {}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/home", "query_params": {}, "headers": {"User-Agent": "Mozilla/5.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/home", "query_params": {}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/home", "query_params": {}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/home", "query_params": {}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/about", "query_params": {}, "headers": {"User-Agent": "Mozilla/5.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/about", "query_params": {}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/about", "query_params": {}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/about", "query_params": {}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/contact", "query_params": {}, "headers": {"User-Agent": "Mozilla/5.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/contact", "query_params": {}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/contact", "query_params": {}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/contact", "query_params": {}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/services", "query_params": {}, "headers": {"User-Agent": "Mozilla/5.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/services", "query_params": {}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/services", "query_params": {}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/services", "query_params": {}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "green energy"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "green energy"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "green energy"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "green energy"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "campus"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "campus"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "campus"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "campus"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "technology"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "technology"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "technology"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "technology"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "innovation"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "innovation"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "innovation"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "innovation"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "research"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "research"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "research"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "research"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "electronics"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "electronics"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "electronics"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "electronics"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "books"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "books"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "books"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"category": "books"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"id": "123"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"id": "123"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"id": "123"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/products", "query_params": {"id": "123"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/category", "query_params": {"name": "laptops"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/category", "query_params": {"name": "laptops"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/category", "query_params": {"name": "laptops"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/category", "query_params": {"name": "laptops"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "POST", "path": "/login", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"username\": \"john\", \"password\": \"validpass123\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/login", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Chrome/91.0"}, "body": "{\"username\": \"john\", \"password\": \"validpass123\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/login", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Firefox/89.0"}, "body": "{\"username\": \"john\", \"password\": \"validpass123\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/login", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Safari/14.0"}, "body": "{\"username\": \"john\", \"password\": \"validpass123\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/register", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"username\": \"newuser\", \"email\": \"user@example.com\", \"password\": \"securepass\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/register", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Chrome/91.0"}, "body": "{\"username\": \"newuser\", \"email\": \"user@example.com\", \"password\": \"securepass\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/register", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Firefox/89.0"}, "body": "{\"username\": \"newuser\", \"email\": \"user@example.com\", \"password\": \"securepass\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/register", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Safari/14.0"}, "body": "{\"username\": \"newuser\", \"email\": \"user@example.com\", \"password\": \"securepass\"}"}, "label": "benign"}
+{"request": {"method": "GET", "path": "/profile", "query_params": {"user": "john"}, "headers": {"Authorization": "Bearer token123"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/profile", "query_params": {"user": "john"}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/profile", "query_params": {"user": "john"}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/profile", "query_params": {"user": "john"}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/dashboard", "query_params": {}, "headers": {"Authorization": "Bearer token123"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/dashboard", "query_params": {}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/dashboard", "query_params": {}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/dashboard", "query_params": {}, "headers": {"Authorization": "Bearer token123", "User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/api/users", "query_params": {"page": "1"}, "headers": {"Content-Type": "application/json"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/api/users", "query_params": {"page": "1"}, "headers": {"Content-Type": "application/json", "User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/api/users", "query_params": {"page": "1"}, "headers": {"Content-Type": "application/json", "User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/api/users", "query_params": {"page": "1"}, "headers": {"Content-Type": "application/json", "User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "POST", "path": "/api/data", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"data\": \"valid_content\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/api/data", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Chrome/91.0"}, "body": "{\"data\": \"valid_content\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/api/data", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Firefox/89.0"}, "body": "{\"data\": \"valid_content\"}"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/api/data", "query_params": {}, "headers": {"Content-Type": "application/json", "User-Agent": "Safari/14.0"}, "body": "{\"data\": \"valid_content\"}"}, "label": "benign"}
+{"request": {"method": "PUT", "path": "/api/update", "query_params": {"id": "456"}, "headers": {"Content-Type": "application/json"}, "body": "{\"field\": \"value\"}"}, "label": "benign"}
+{"request": {"method": "PUT", "path": "/api/update", "query_params": {"id": "456"}, "headers": {"Content-Type": "application/json", "User-Agent": "Chrome/91.0"}, "body": "{\"field\": \"value\"}"}, "label": "benign"}
+{"request": {"method": "PUT", "path": "/api/update", "query_params": {"id": "456"}, "headers": {"Content-Type": "application/json", "User-Agent": "Firefox/89.0"}, "body": "{\"field\": \"value\"}"}, "label": "benign"}
+{"request": {"method": "PUT", "path": "/api/update", "query_params": {"id": "456"}, "headers": {"Content-Type": "application/json", "User-Agent": "Safari/14.0"}, "body": "{\"field\": \"value\"}"}, "label": "benign"}
+{"request": {"method": "GET", "path": "/download", "query_params": {"file": "document.pdf"}, "headers": {}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/download", "query_params": {"file": "document.pdf"}, "headers": {"User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/download", "query_params": {"file": "document.pdf"}, "headers": {"User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/download", "query_params": {"file": "document.pdf"}, "headers": {"User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "POST", "path": "/upload", "query_params": {}, "headers": {"Content-Type": "multipart/form-data"}, "body": "file_content_here"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/upload", "query_params": {}, "headers": {"Content-Type": "multipart/form-data", "User-Agent": "Chrome/91.0"}, "body": "file_content_here"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/upload", "query_params": {}, "headers": {"Content-Type": "multipart/form-data", "User-Agent": "Firefox/89.0"}, "body": "file_content_here"}, "label": "benign"}
+{"request": {"method": "POST", "path": "/upload", "query_params": {}, "headers": {"Content-Type": "multipart/form-data", "User-Agent": "Safari/14.0"}, "body": "file_content_here"}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin", "query_params": {}, "headers": {"Authorization": "Bearer admin_token"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin/users", "query_params": {}, "headers": {"Authorization": "Bearer admin_token"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin/users", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Chrome/91.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin/users", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Firefox/89.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/admin/users", "query_params": {}, "headers": {"Authorization": "Bearer admin_token", "User-Agent": "Safari/14.0"}, "body": ""}, "label": "benign"}
+{"request": {"method": "GET", "path": "/login", "query_params": {"id": "' OR '1'='1"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/login", "query_params": {"id": "1' UNION SELECT * FROM users--"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "'; DROP TABLE users;--"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "POST", "path": "/login", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"username\": \"admin\", \"password\": \"pass' OR '1'='1\"}"}, "label": "attack"}
+{"request": {"method": "GET", "path": "/search", "query_params": {"q": "<script>alert('XSS')</script>"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/comment", "query_params": {"msg": "<img src=x onerror=alert(1)>"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "POST", "path": "/post", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"content\": \"<script>document.location=\\\"http://evil.com\\\"</script>\"}"}, "label": "attack"}
+{"request": {"method": "GET", "path": "/file", "query_params": {"name": "../../../etc/passwd"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/download", "query_params": {"file": "..\\..\\..\\windows\\system32\\config\\sam"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/include", "query_params": {"page": "....//....//....//etc/passwd"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/ping", "query_params": {"host": "127.0.0.1; cat /etc/passwd"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/system", "query_params": {"cmd": "ls -la && rm -rf /"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "POST", "path": "/exec", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"command\": \"whoami && cat /etc/shadow\"}"}, "label": "attack"}
+{"request": {"method": "POST", "path": "/eval", "query_params": {}, "headers": {"Content-Type": "application/json"}, "body": "{\"code\": \"<?php system($_GET['cmd']); ?>\"}"}, "label": "attack"}
+{"request": {"method": "GET", "path": "/include", "query_params": {"file": "data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/auth", "query_params": {"user": "admin)(&(password=*))"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "POST", "path": "/xml", "query_params": {}, "headers": {"Content-Type": "application/xml"}, "body": "<?xml version=\"1.0\"?><!DOCTYPE root [<!ENTITY test SYSTEM \"file:///etc/passwd\">]><root>&test;</root>"}, "label": "attack"}
+{"request": {"method": "GET", "path": "/fetch", "query_params": {"url": "http://169.254.169.254/latest/meta-data/"}, "headers": {}, "body": ""}, "label": "attack"}
+{"request": {"method": "GET", "path": "/proxy", "query_params": {"target": "file:///etc/passwd"}, "headers": {}, "body": ""}, "label": "attack"}

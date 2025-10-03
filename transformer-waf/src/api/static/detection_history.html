@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAF Detection History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .filters {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .filter-group input, .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .filter-group input:focus, .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #5a6fd8;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .detections-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .anomaly-true {
+            background-color: #ffe6e6;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .anomaly-false {
+            background-color: #e6f7e6;
+            color: #198754;
+        }
+
+        .score-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .score-medium {
+            color: #fd7e14;
+        }
+
+        .score-low {
+            color: #198754;
+        }
+
+        .method-get {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .method-post {
+            background: #fff3e0;
+            color: #f57c00;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .method-put {
+            background: #f3e5f5;
+            color: #7b1fa2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .method-delete {
+            background: #ffebee;
+            color: #c62828;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .replay-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .replay-btn:hover {
+            background: #138496;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .page-btn {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .page-btn:hover {
+            background: #f8f9fa;
+        }
+
+        .page-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ WAF Detection History</h1>
+            <p>Real-time monitoring and analysis of web application firewall detections</p>
+        </div>
+
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>API Key</label>
+                    <input type="password" id="apiKey" placeholder="Enter API key" value="dev-key">
+                </div>
+                <div class="filter-group">
+                    <label>Anomaly Status</label>
+                    <select id="anomalyFilter">
+                        <option value="">All</option>
+                        <option value="true">Anomalies Only</option>
+                        <option value="false">Benign Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Min Score</label>
+                    <input type="number" id="minScore" placeholder="0.0" step="0.1">
+                </div>
+                <div class="filter-group">
+                    <label>Max Score</label>
+                    <input type="number" id="maxScore" placeholder="10.0" step="0.1">
+                </div>
+                <div class="filter-group">
+                    <label>Path Pattern</label>
+                    <input type="text" id="pathPattern" placeholder="/search, /login, etc.">
+                </div>
+            </div>
+            <div class="filter-row">
+                <button class="btn" onclick="loadDetections()">🔍 Load Detections</button>
+                <button class="btn btn-secondary" onclick="loadStats()">📊 Refresh Stats</button>
+                <button class="btn btn-secondary" onclick="clearFilters()">🗑️ Clear Filters</button>
+            </div>
+        </div>
+
+        <div class="stats" id="statsContainer">
+            <!-- Stats will be loaded here -->
+        </div>
+
+        <div class="detections-table">
+            <div class="table-header">
+                <div class="table-title">Detection Events</div>
+            </div>
+            <div id="tableContainer">
+                <div class="loading">Click "Load Detections" to view detection history</div>
+            </div>
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <!-- Pagination will be added here -->
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+        let currentPage = 0;
+        const pageSize = 50;
+
+        function getApiKey() {
+            return document.getElementById('apiKey').value || 'dev-key';
+        }
+
+        function getHeaders() {
+            return {
+                'X-API-Key': getApiKey(),
+                'Content-Type': 'application/json'
+            };
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE}/stats`, {
+                    headers: getHeaders()
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const stats = await response.json();
+                displayStats(stats);
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                document.getElementById('statsContainer').innerHTML = 
+                    '<div class="error">Failed to load statistics</div>';
+            }
+        }
+
+        function displayStats(stats) {
+            const container = document.getElementById('statsContainer');
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">${stats.total_requests}</div>
+                    <div class="stat-label">Total Requests</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${stats.total_anomalies}</div>
+                    <div class="stat-label">Anomalies Detected</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${stats.detection_rate.toFixed(1)}%</div>
+                    <div class="stat-label">Detection Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${stats.avg_score ? stats.avg_score.toFixed(2) : 'N/A'}</div>
+                    <div class="stat-label">Avg Score</div>
+                </div>
+            `;
+        }
+
+        async function loadDetections(page = 0) {
+            const container = document.getElementById('tableContainer');
+            container.innerHTML = '<div class="loading">Loading detections...</div>';
+
+            try {
+                const params = new URLSearchParams();
+                
+                const anomalyFilter = document.getElementById('anomalyFilter').value;
+                if (anomalyFilter) params.append('is_anomaly', anomalyFilter);
+                
+                const minScore = document.getElementById('minScore').value;
+                if (minScore) params.append('min_score', minScore);
+                
+                const maxScore = document.getElementById('maxScore').value;
+                if (maxScore) params.append('max_score', maxScore);
+                
+                const pathPattern = document.getElementById('pathPattern').value;
+                if (pathPattern) params.append('path_pattern', pathPattern);
+                
+                params.append('limit', pageSize.toString());
+                params.append('offset', (page * pageSize).toString());
+
+                const response = await fetch(`${API_BASE}/logs?${params}`, {
+                    headers: getHeaders()
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const detections = await response.json();
+                displayDetections(detections);
+                currentPage = page;
+                updatePagination(detections.length === pageSize);
+            } catch (error) {
+                console.error('Error loading detections:', error);
+                container.innerHTML = `<div class="error">Failed to load detections: ${error.message}</div>`;
+            }
+        }
+
+        function displayDetections(detections) {
+            const container = document.getElementById('tableContainer');
+            
+            if (detections.length === 0) {
+                container.innerHTML = '<div class="loading">No detections found</div>';
+                return;
+            }
+
+            const table = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Method</th>
+                            <th>Path</th>
+                            <th>Score</th>
+                            <th>Anomaly</th>
+                            <th>Model Ver</th>
+                            <th>Client IP</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${detections.map(d => `
+                            <tr>
+                                <td>${new Date(d.timestamp * 1000).toLocaleString()}</td>
+                                <td><span class="method-${d.method.toLowerCase()}">${d.method}</span></td>
+                                <td>${d.path}</td>
+                                <td class="${getScoreClass(d.anomaly_score)}">${d.anomaly_score.toFixed(3)}</td>
+                                <td class="${d.is_anomaly ? 'anomaly-true' : 'anomaly-false'}">
+                                    ${d.is_anomaly ? '🚨 ANOMALY' : '✅ BENIGN'}
+                                </td>
+                                <td>v${d.model_version}</td>
+                                <td>${d.client_ip_hash ? d.client_ip_hash.substring(0, 8) + '...' : 'N/A'}</td>
+                                <td>
+                                    <button class="replay-btn" onclick="replayDetection('${d.request_id}')">
+                                        🔄 Replay
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+            
+            container.innerHTML = table;
+        }
+
+        function getScoreClass(score) {
+            if (score >= 9.0) return 'score-high';
+            if (score >= 8.5) return 'score-medium';
+            return 'score-low';
+        }
+
+        function updatePagination(hasMore) {
+            const pagination = document.getElementById('pagination');
+            pagination.style.display = 'flex';
+            
+            let html = '';
+            
+            if (currentPage > 0) {
+                html += `<button class="page-btn" onclick="loadDetections(${currentPage - 1})">← Previous</button>`;
+            }
+            
+            html += `<button class="page-btn active">Page ${currentPage + 1}</button>`;
+            
+            if (hasMore) {
+                html += `<button class="page-btn" onclick="loadDetections(${currentPage + 1})">Next →</button>`;
+            }
+            
+            pagination.innerHTML = html;
+        }
+
+        async function replayDetection(requestId) {
+            try {
+                const response = await fetch(`${API_BASE}/replay/${requestId}`, {
+                    method: 'POST',
+                    headers: getHeaders()
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const result = await response.json();
+                alert(`Replay Result:\nScore: ${result.anomaly_score.toFixed(3)}\nAnomaly: ${result.is_anomaly ? 'YES' : 'NO'}\nRequest ID: ${result.request_id}`);
+                
+                // Reload detections to show the replay
+                loadDetections(currentPage);
+            } catch (error) {
+                alert(`Replay failed: ${error.message}`);
+            }
+        }
+
+        function clearFilters() {
+            document.getElementById('anomalyFilter').value = '';
+            document.getElementById('minScore').value = '';
+            document.getElementById('maxScore').value = '';
+            document.getElementById('pathPattern').value = '';
+        }
+
+        // Load initial data
+        loadStats();
+        loadDetections();
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            loadStats();
+            if (currentPage === 0) {
+                loadDetections(0);
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
+

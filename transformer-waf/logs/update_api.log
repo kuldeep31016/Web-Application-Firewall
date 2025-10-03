@@ -10,3 +10,24 @@ INFO:     127.0.0.1:56045 - "GET /health HTTP/1.1" 404 Not Found
 INFO:     127.0.0.1:56075 - "GET /health HTTP/1.1" 404 Not Found
 INFO:     127.0.0.1:56134 - "GET /health HTTP/1.1" 404 Not Found
 INFO:     127.0.0.1:56161 - "GET /health HTTP/1.1" 404 Not Found
+/Users/kuldeepraj/SIH Part 2/transformer-waf/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py:515: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/NestedTensorImpl.cpp:182.)
+  output = torch._nested_tensor_from_mask(
+Saved models/checkpoints/best.pt
+INFO:     127.0.0.1:59479 - "POST /add_benign_data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59479 - "POST /add_benign_data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59480 - "POST /add_benign_data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59481 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59481 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60469 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60500 - "POST /retrain HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60502 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60503 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60503 - "GET /retrain/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60504 - "GET /retrain/status HTTP/1.1" 200 OK
+/Users/kuldeepraj/SIH Part 2/transformer-waf/venv/lib/python3.13/site-packages/torch/nn/modules/transformer.py:515: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/NestedTensorImpl.cpp:182.)
+  output = torch._nested_tensor_from_mask(
+Saved models/checkpoints/best.pt
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [93101]

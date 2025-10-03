@@ -3,15 +3,19 @@ from __future__ import annotations
 import os
 import time
 import uuid
-from typing import Dict, List
+from typing import Dict, List, Optional
+from datetime import datetime
 
-from fastapi import FastAPI, HTTPException, Request, Security
+from fastapi import FastAPI, HTTPException, Request, Security, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from fastapi.security.api_key import APIKeyHeader
 
 from ..models.inference import InferenceEngine
 from ..preprocessing.tokenizer import HTTPRequestTokenizer
+from ..storage.detection_store import detection_store
 from ..utils.config import load_config, CONFIG_PATH
 from ..utils.logger import logger, setup_logging
 import json as _json
@@ -34,6 +38,30 @@ class DetectionResponse(BaseModel):
     request_id: str
 
 
+class DetectionHistoryResponse(BaseModel):
+    id: int
+    request_id: str
+    timestamp: float
+    method: str
+    path: str
+    anomaly_score: float
+    is_anomaly: bool
+    model_version: int
+    threshold: float
+    client_ip_hash: Optional[str]
+    notes: Optional[str]
+    created_at: str
+
+
+class DetectionStatsResponse(BaseModel):
+    total_requests: int
+    total_anomalies: int
+    avg_score: float
+    detection_rate: float
+    first_detection: Optional[float]
+    last_detection: Optional[float]
+
+
 app = FastAPI(title="WAF Detection API")
 app.add_middleware(
     CORSMiddleware,
@@ -42,6 +70,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount static files for the detection history UI
+static_path = _Path(__file__).parent / "static"
+static_path.mkdir(exist_ok=True)
+app.mount("/static", StaticFiles(directory=str(static_path)), name="static")
 
 
 CONFIG = load_config(CONFIG_PATH)
@@ -175,6 +208,23 @@ async def detect_anomaly(payload: DetectionRequest, request: Request, _: bool = 
         timestamp=str(time.time()),
         request_id=rid,
     )
+    
+    # Store in structured detection store (non-blocking)
+    detection_store.store_detection(
+        request_id=rid,
+        method=payload.method,
+        path=payload.path,
+        query_params=payload.query_params,
+        headers=payload.headers,
+        body=payload.body,
+        anomaly_score=resp.anomaly_score,
+        is_anomaly=resp.is_anomaly,
+        model_version=getattr(ENGINE, 'model_version', 1),
+        threshold=getattr(ENGINE, 'threshold', 8.5),
+        client_ip=request.client.host if request.client else None
+    )
+    
+    # Keep legacy logging for backward compatibility
     _append_detection_log({
         "request_id": rid,
         "method": payload.method,
@@ -223,7 +273,7 @@ async def detect_batch(requests: List[DetectionRequest], request: Request, _: bo
         encoded_masks.append(enc["attention_mask"])  # type: ignore[index]
     results = ENGINE.predict_batch(encoded_inputs, encoded_masks)
     out = []
-    for r in results:
+    for i, r in enumerate(results):
         if r["is_anomaly"]:  # type: ignore[index]
             METRICS["anomalies"] += 1
         rec = {
@@ -235,6 +285,217 @@ async def detect_batch(requests: List[DetectionRequest], request: Request, _: bo
         }
         out.append(rec)
         _append_detection_log({"request_id": rec["request_id"], "batch": True, **rec})
+        
+        # Store each batch item in structured store
+        detection_store.store_detection(
+            request_id=rec["request_id"],
+            method=requests[i].method,
+            path=requests[i].path,
+            query_params=requests[i].query_params,
+            headers=requests[i].headers,
+            body=requests[i].body,
+            anomaly_score=rec["anomaly_score"],
+            is_anomaly=rec["is_anomaly"],
+            model_version=getattr(ENGINE, 'model_version', 1),
+            threshold=getattr(ENGINE, 'threshold', 8.5),
+            client_ip=request.client.host if request.client else None,
+            notes="batch_request"
+        )
     return out
+
+
+@app.get("/logs", response_model=List[DetectionHistoryResponse])
+async def get_detection_logs(
+    from_time: Optional[str] = Query(None, description="Start time (ISO format or timestamp)"),
+    to_time: Optional[str] = Query(None, description="End time (ISO format or timestamp)"),
+    is_anomaly: Optional[bool] = Query(None, description="Filter by anomaly status"),
+    min_score: Optional[float] = Query(None, description="Minimum anomaly score"),
+    max_score: Optional[float] = Query(None, description="Maximum anomaly score"),
+    path_pattern: Optional[str] = Query(None, description="Path pattern to match"),
+    limit: int = Query(100, description="Maximum results"),
+    offset: int = Query(0, description="Results offset"),
+    _: bool = Security(verify_api_key)
+) -> List[DetectionHistoryResponse]:
+    """
+    Get detection history with filtering options.
+    
+    Supports filtering by time range, anomaly status, score range, and path patterns.
+    Results are ordered by most recent first.
+    """
+    
+    # Parse timestamps
+    from_timestamp = None
+    to_timestamp = None
+    
+    if from_time:
+        try:
+            # Try parsing as ISO format first
+            from_timestamp = datetime.fromisoformat(from_time.replace('Z', '+00:00')).timestamp()
+        except ValueError:
+            # Try parsing as raw timestamp
+            try:
+                from_timestamp = float(from_time)
+            except ValueError:
+                raise HTTPException(status_code=400, detail="Invalid from_time format")
+    
+    if to_time:
+        try:
+            to_timestamp = datetime.fromisoformat(to_time.replace('Z', '+00:00')).timestamp()
+        except ValueError:
+            try:
+                to_timestamp = float(to_time)
+            except ValueError:
+                raise HTTPException(status_code=400, detail="Invalid to_time format")
+    
+    # Query detection store
+    detections = detection_store.get_detections(
+        from_timestamp=from_timestamp,
+        to_timestamp=to_timestamp,
+        is_anomaly=is_anomaly,
+        min_score=min_score,
+        max_score=max_score,
+        path_pattern=path_pattern,
+        limit=limit,
+        offset=offset
+    )
+    
+    # Convert to response format
+    return [
+        DetectionHistoryResponse(
+            id=d["id"],
+            request_id=d["request_id"],
+            timestamp=d["timestamp"],
+            method=d["method"],
+            path=d["path"],
+            anomaly_score=d["anomaly_score"],
+            is_anomaly=bool(d["is_anomaly"]),
+            model_version=d["model_version"],
+            threshold=d["threshold"],
+            client_ip_hash=d["client_ip_hash"],
+            notes=d["notes"],
+            created_at=d["created_at"]
+        )
+        for d in detections
+    ]
+
+
+@app.post("/replay/{request_id}", response_model=DetectionResponse)
+async def replay_detection(
+    request_id: str,
+    _: bool = Security(verify_api_key)
+) -> DetectionResponse:
+    """
+    Replay a stored request through the current model.
+    
+    Useful for debugging and comparing how the current model would score
+    a previously seen request.
+    """
+    
+    # Get original detection record
+    original = detection_store.get_detection_by_id(request_id)
+    if not original:
+        raise HTTPException(status_code=404, detail="Request ID not found")
+    
+    # Parse the normalized request back to components
+    try:
+        request_data = _json.loads(original["normalized_request"])
+    except _json.JSONDecodeError:
+        raise HTTPException(status_code=500, detail="Invalid stored request data")
+    
+    # Create detection request
+    payload = DetectionRequest(
+        method=request_data["method"],
+        path=request_data["path"],
+        query_params=request_data.get("query_params", {}),
+        headers=request_data.get("headers", {}),
+        body=request_data.get("body", "")
+    )
+    
+    # Run through current model
+    global ENGINE
+    if ENGINE is None or ENGINE.model is None:
+        raise HTTPException(status_code=503, detail="Engine not ready")
+    
+    max_len_cfg = int(CONFIG.get("model", {}).get("max_seq_length", 512))
+    if ENGINE.model is not None:
+        max_len_model = int(getattr(getattr(ENGINE.model, "positional", None), "num_embeddings", max_len_cfg))
+        max_len = min(max_len_cfg, max_len_model)
+    else:
+        max_len = max_len_cfg
+    
+    encoded = _encode_request(payload, max_len)
+    result = ENGINE.predict_single(encoded["input_ids"], encoded["attention_mask"])
+    
+    # Generate new request ID for replay
+    replay_id = f"replay-{request_id}-{str(uuid.uuid4())[:8]}"
+    
+    resp = DetectionResponse(
+        is_anomaly=bool(result["is_anomaly"]),  # type: ignore[index]
+        confidence=float(result["confidence"]),  # type: ignore[index]
+        anomaly_score=float(result["anomaly_score"]),  # type: ignore[index]
+        timestamp=str(time.time()),
+        request_id=replay_id,
+    )
+    
+    # Store replay result with notes
+    detection_store.store_detection(
+        request_id=replay_id,
+        method=payload.method,
+        path=payload.path,
+        query_params=payload.query_params,
+        headers=payload.headers,
+        body=payload.body,
+        anomaly_score=resp.anomaly_score,
+        is_anomaly=resp.is_anomaly,
+        model_version=getattr(ENGINE, 'model_version', 1),
+        threshold=getattr(ENGINE, 'threshold', 8.5),
+        notes=f"replay_of_{request_id}"
+    )
+    
+    return resp
+
+
+@app.get("/stats", response_model=DetectionStatsResponse)
+async def get_detection_stats(_: bool = Security(verify_api_key)) -> DetectionStatsResponse:
+    """
+    Get detection statistics and performance metrics.
+    
+    Provides overview of total requests, anomalies, scores, and detection rates.
+    """
+    stats = detection_store.get_stats()
+    
+    return DetectionStatsResponse(
+        total_requests=stats["total_requests"],
+        total_anomalies=stats["total_anomalies"],
+        avg_score=stats["avg_score"] or 0.0,
+        detection_rate=stats["detection_rate"],
+        first_detection=stats["first_detection"],
+        last_detection=stats["last_detection"]
+    )
+
+
+@app.post("/cleanup")
+async def cleanup_old_records(
+    retention_days: int = Query(30, description="Days to retain records"),
+    _: bool = Security(verify_api_key)
+) -> Dict[str, int]:
+    """
+    Clean up old detection records beyond retention period.
+    
+    Default retention is 30 days for privacy compliance.
+    """
+    deleted_count = detection_store.cleanup_old_records(retention_days)
+    return {"deleted_records": deleted_count}
+
+
+@app.get("/history")
+async def detection_history_ui():
+    """
+    Serve the detection history web UI.
+    
+    Provides a user-friendly interface to view, filter, and replay detections.
+    """
+    static_file = _Path(__file__).parent / "static" / "detection_history.html"
+    return FileResponse(static_file)
 
 

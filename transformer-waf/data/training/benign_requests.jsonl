@@ -1,0 +1,100 @@
+{"request": "GET /"}
+{"request": "GET /"}
+{"request": "GET /"}
+{"request": "GET /"}
+{"request": "GET /home"}
+{"request": "GET /home"}
+{"request": "GET /home"}
+{"request": "GET /home"}
+{"request": "GET /about"}
+{"request": "GET /about"}
+{"request": "GET /about"}
+{"request": "GET /about"}
+{"request": "GET /contact"}
+{"request": "GET /contact"}
+{"request": "GET /contact"}
+{"request": "GET /contact"}
+{"request": "GET /services"}
+{"request": "GET /services"}
+{"request": "GET /services"}
+{"request": "GET /services"}
+{"request": "GET /search q=green energy"}
+{"request": "GET /search q=green energy"}
+{"request": "GET /search q=green energy"}
+{"request": "GET /search q=green energy"}
+{"request": "GET /search q=campus"}
+{"request": "GET /search q=campus"}
+{"request": "GET /search q=campus"}
+{"request": "GET /search q=campus"}
+{"request": "GET /search q=technology"}
+{"request": "GET /search q=technology"}
+{"request": "GET /search q=technology"}
+{"request": "GET /search q=technology"}
+{"request": "GET /search q=innovation"}
+{"request": "GET /search q=innovation"}
+{"request": "GET /search q=innovation"}
+{"request": "GET /search q=innovation"}
+{"request": "GET /search q=research"}
+{"request": "GET /search q=research"}
+{"request": "GET /search q=research"}
+{"request": "GET /search q=research"}
+{"request": "GET /products category=electronics"}
+{"request": "GET /products category=electronics"}
+{"request": "GET /products category=electronics"}
+{"request": "GET /products category=electronics"}
+{"request": "GET /products category=books"}
+{"request": "GET /products category=books"}
+{"request": "GET /products category=books"}
+{"request": "GET /products category=books"}
+{"request": "GET /products id=123"}
+{"request": "GET /products id=123"}
+{"request": "GET /products id=123"}
+{"request": "GET /products id=123"}
+{"request": "GET /category name=laptops"}
+{"request": "GET /category name=laptops"}
+{"request": "GET /category name=laptops"}
+{"request": "GET /category name=laptops"}
+{"request": "POST /login {\"username\": \"john\", \"password\": \"validpass123\"}"}
+{"request": "POST /login {\"username\": \"john\", \"password\": \"validpass123\"}"}
+{"request": "POST /login {\"username\": \"john\", \"password\": \"validpass123\"}"}
+{"request": "POST /login {\"username\": \"john\", \"password\": \"validpass123\"}"}
+{"request": "POST /register {\"username\": \"newuser\", \"email\": \"user@example.com"}
+{"request": "POST /register {\"username\": \"newuser\", \"email\": \"user@example.com"}
+{"request": "POST /register {\"username\": \"newuser\", \"email\": \"user@example.com"}
+{"request": "POST /register {\"username\": \"newuser\", \"email\": \"user@example.com"}
+{"request": "GET /profile user=john"}
+{"request": "GET /profile user=john"}
+{"request": "GET /profile user=john"}
+{"request": "GET /profile user=john"}
+{"request": "GET /dashboard"}
+{"request": "GET /dashboard"}
+{"request": "GET /dashboard"}
+{"request": "GET /dashboard"}
+{"request": "GET /api/users page=1"}
+{"request": "GET /api/users page=1"}
+{"request": "GET /api/users page=1"}
+{"request": "GET /api/users page=1"}
+{"request": "POST /api/data {\"data\": \"valid_content\"}"}
+{"request": "POST /api/data {\"data\": \"valid_content\"}"}
+{"request": "POST /api/data {\"data\": \"valid_content\"}"}
+{"request": "POST /api/data {\"data\": \"valid_content\"}"}
+{"request": "PUT /api/update id=456 {\"field\": \"value\"}"}
+{"request": "PUT /api/update id=456 {\"field\": \"value\"}"}
+{"request": "PUT /api/update id=456 {\"field\": \"value\"}"}
+{"request": "PUT /api/update id=456 {\"field\": \"value\"}"}
+{"request": "GET /download file=document.pdf"}
+{"request": "GET /download file=document.pdf"}
+{"request": "GET /download file=document.pdf"}
+{"request": "GET /download file=document.pdf"}
+{"request": "POST /upload file_content_here"}
+{"request": "POST /upload file_content_here"}
+{"request": "POST /upload file_content_here"}
+{"request": "POST /upload file_content_here"}
+{"request": "GET /admin"}
+{"request": "GET /admin"}
+{"request": "GET /admin"}
+{"request": "GET /admin"}
+{"request": "GET /admin/users"}
+{"request": "GET /admin/users"}
+{"request": "GET /admin/users"}
+{"request": "GET /admin/users"}

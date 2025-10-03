@@ -60,3 +60,36 @@ INFO:     127.0.0.1:56282 - "POST /detect HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56284 - "POST /detect HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56286 - "POST /detect HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56288 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57784 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57824 - "POST /detect/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57856 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57881 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57910 - "POST /threshold?value=9.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58391 - "POST /detect HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58391 - "POST /detect HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58654 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58818 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58973 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59068 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59068 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59069 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59175 - "POST /detect/batch HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59298 - "POST /detect/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60569 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60595 - "POST /detect HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:60607 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60876 - "GET /history HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60927 - "GET /logs?limit=5 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60936 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60943 - "GET /history HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60943 - "GET /history HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60949 - "POST /detect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60952 - "GET /logs?limit=3 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60960 - "GET /logs?limit=5 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60962 - "GET /stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60972 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60975 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [93100]
