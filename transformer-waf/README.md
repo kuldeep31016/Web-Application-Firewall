@@ -1,244 +1,182 @@
-# 🛡️ Transformer-based Web Application Firewall (WAF)
+# Transformer-based Web Application Firewall (WAF)
 
-An AI-powered Web Application Firewall that uses Transformer models for anomaly detection on web traffic. Built for the Smart India Hackathon (SIH) with complete integration support for Apache/Nginx servers.
+This repository contains a working prototype of a Web Application Firewall that uses a Transformer model to flag anomalous HTTP requests. It was built for the Smart India Hackathon (SIH) and comes with simple integration points for Nginx/Apache and demo apps to showcase end‑to‑end behavior.
 
-## 🚀 Key Features
+The focus is practicality: small, readable code, a repeatable demo, and clear setup instructions.
 
-- **🧠 AI-Powered Detection**: Uses Transformer models for pattern-based anomaly detection (not rule-based)
-- **⚡ Real-time Analysis**: Analyzes HTTP requests in real-time with sub-second response times
-- **📦 Batch Processing**: Handles multiple requests simultaneously for high throughput
-- **🔄 Continuous Learning**: Adapts to new benign traffic patterns through incremental training
-- **🌐 Web Server Integration**: Works with Apache/Nginx via log tailing and traffic mirroring
-- **🔒 Privacy Compliant**: Structured detection store with PII redaction and configurable retention
-- **📊 Detection History**: Web UI for viewing, filtering, and replaying detections
-- **🎯 Request Replay**: Re-analyze stored requests with current model for debugging
-- **📈 Performance Monitoring**: Real-time metrics and statistics
-- **🐳 Production Ready**: Docker orchestration with complete deployment setup
+## What this does
 
-## 🏗️ Architecture
+- Detects suspicious requests in real time using a trained Transformer (no rule lists)
+- Stores detection events for audit, filtering, replay, and incremental retraining
+- Provides a small web UI for browsing detection history
+- Ships with scripts to generate benign data, train quickly, and run a live demo
 
-```
-Internet → Nginx/Apache → Sample Apps
-    ↓ (traffic mirroring)
-WAF Detection API → Structured Storage → History UI
-    ↓ (continuous learning)
-WAF Update API → Model Retraining
-```
+## Prerequisites
 
-## 🎯 SIH Problem Statement Compliance
+- Python 3.10+
+- macOS/Linux (tested on macOS)
+- Optional: Docker and Docker Compose
 
-**"We persist structured detection events (redacted) for audit, incremental retraining, and replay; default retention: 30 days."**
+## Quick start (local)
 
-✅ **Log Ingestion**: Batch and real-time ingestion of Apache/Nginx logs  
-✅ **Parsing & Normalization**: Structured extraction with PII redaction  
-✅ **Tokenization**: Prepares request sequences for Transformer models  
-✅ **Model Training**: Transformer-based anomaly detection on benign traffic  
-✅ **Real-Time Detection**: Non-blocking concurrent inference  
-✅ **Continuous Updates**: Incremental retraining on new benign data  
-✅ **Integration**: Apache/Nginx pipeline integration  
-✅ **Demo Capability**: Live attack detection and metrics  
-
-## 🚀 Quick Start
-
-### 1. Environment Setup
 ```bash
 cd transformer-waf
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
+# Start APIs (two terminals or run in background)
+PYTHONPATH=. uvicorn src.api.detection_api:app --host 0.0.0.0 --port 8000
+PYTHONPATH=. uvicorn src.api.update_api:app --host 0.0.0.0 --port 8001
 ```
 
-### 2. Start All Services
+Generate a small dataset and train a lightweight model (enough for the demo):
+
 ```bash
-# Automated startup (recommended)
-./scripts/start_demo_services.sh
-
-# Or manual startup:
-# Detection API
-PYTHONPATH=. uvicorn src.api.detection_api:app --host 0.0.0.0 --port 8000 --workers 1
-
-# Update API  
-PYTHONPATH=. uvicorn src.api.update_api:app --host 0.0.0.0 --port 8001 --workers 1
-```
-
-### 3. Generate Training Data & Train Model
-```bash
-# Generate benign traffic data
 PYTHONPATH=. python scripts/generate_benign.py
-
-# Train the model
 PYTHONPATH=. python scripts/train_quick.py
 ```
 
-### 4. Test the WAF
-```bash
-# Run automated demonstration
-./scripts/demo_presentation.sh
+Run the guided demo (recommended for judges):
 
-# Or test individual endpoints:
+```bash
+./scripts/demo_presentation.sh
+```
+
+You can also start everything with one helper script:
+
+```bash
+./scripts/start_demo_services.sh
+```
+
+## How to use it during evaluation
+
+1. Open Detection API docs: `http://localhost:8000/docs`
+2. Send a benign request to `/detect` (see examples below)
+3. Send an attack‑like request (SQLi/XSS sample) and note the anomaly score
+4. Open the history UI: `http://localhost:8000/history` and filter recent events
+5. (Optional) Trigger retraining via Update API: `http://localhost:8001/docs`
+
+Example requests:
+
+```bash
+# Benign
 curl -X POST http://localhost:8000/detect \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: dev-key" \
+  -H "Content-Type: application/json" -H "X-API-Key: dev-key" \
+  -d '{"method":"GET","path":"/products","query_params":{"q":"laptop"},"headers":{},"body":""}'
+
+# Attack‑like (XSS)
+curl -X POST http://localhost:8000/detect \
+  -H "Content-Type: application/json" -H "X-API-Key: dev-key" \
   -d '{"method":"GET","path":"/search","query_params":{"q":"<script>alert(1)</script>"},"headers":{},"body":""}'
 ```
 
-## 🌐 Web Interfaces
+History UI: `http://localhost:8000/history`  
+Swagger: `http://localhost:8000/docs` and `http://localhost:8001/docs`
 
-### Detection API (Port 8000)
-- **Swagger UI**: `http://localhost:8000/docs`
-- **Detection History**: `http://localhost:8000/history`
-- **Health Check**: `http://localhost:8000/health`
-
-### Update API (Port 8001)  
-- **Swagger UI**: `http://localhost:8001/docs`
-- **Retraining Status**: `http://localhost:8001/retrain/status`
-
-## 🔧 API Endpoints
-
-### Detection API (`http://localhost:8000`)
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/detect` | POST | Analyze single HTTP request |
-| `/detect/batch` | POST | Analyze multiple requests |
-| `/logs` | GET | View detection history with filters |
-| `/replay/{request_id}` | POST | Replay stored request with current model |
-| `/stats` | GET | Get detection statistics |
-| `/metrics` | GET | Get performance metrics |
-| `/threshold` | POST | Update detection threshold |
-| `/cleanup` | POST | Clean up old records |
-| `/history` | GET | Detection history web UI |
-
-### Update API (`http://localhost:8001`)
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/retrain` | POST | Trigger incremental model retraining |
-| `/retrain/status` | GET | Check retraining progress |
-| `/add_benign_data` | POST | Add new benign traffic samples |
-
-## 🎯 Detection History Features
-
-The WAF includes a comprehensive detection store with:
-
-- **🔒 Privacy Compliance**: Automatic PII redaction (auth tokens, cookies, emails, IDs)
-- **📊 Structured Storage**: SQLite database with indexed queries
-- **🔍 Advanced Filtering**: Filter by time, anomaly status, score range, path patterns
-- **🔄 Request Replay**: Re-analyze past requests with current model
-- **📈 Statistics**: Detection rates, score distributions, performance metrics
-- **🧹 Auto Cleanup**: Configurable retention (default: 30 days)
-- **⚡ Non-blocking**: Background logging doesn't impact detection performance
-
-## 🧪 Testing & Demonstration
-
-### Automated Demo
-```bash
-# Complete demonstration script
-./scripts/demo_presentation.sh
-```
-
-### Manual Testing
-```bash
-# Test benign request
-curl -X POST http://localhost:8000/detect \
-  -H "Content-Type: application/json" -H "X-API-Key: dev-key" \
-  -d '{"method":"GET","path":"/products","query_params":{"category":"electronics"},"headers":{},"body":""}'
-
-# Test SQL injection attack
-curl -X POST http://localhost:8000/detect \
-  -H "Content-Type: application/json" -H "X-API-Key: dev-key" \
-  -d '{"method":"GET","path":"/login","query_params":{"id":"'\'' OR '\''1'\''='\''1"},"headers":{},"body":""}'
-
-# View detection history
-curl -H "X-API-Key: dev-key" "http://localhost:8000/logs?is_anomaly=true&limit=10"
-```
-
-### Load Testing
-```bash
-./scripts/load_test.sh
-```
-
-## 🐳 Docker Deployment
+## Docker (optional)
 
 ```bash
-# Start complete environment
 docker-compose up -d
-
-# Services available:
-# - WAF API: http://localhost:8000
-# - Update API: http://localhost:8001  
-# - Nginx: http://localhost:80
-# - Sample Apps: http://localhost:8081-8083
+# WAF API  : http://localhost:8000
+# Update API: http://localhost:8001
+# Nginx     : http://localhost:80
+# Sample apps: http://localhost:8081-8083
 ```
 
-## 📊 Performance Metrics
+## Project layout (short version)
 
-- **Detection Speed**: < 100ms per request
-- **Throughput**: 1000+ requests/second (batch mode)
-- **Memory Usage**: ~500MB (with model loaded)
-- **Storage**: ~1KB per detection record
-- **Accuracy**: 90%+ on common attack patterns
-
-## 🔧 Configuration
-
-Key settings in `config.yaml`:
-
-```yaml
-model:
-  vocab_size: 10000
-  max_seq_length: 512
-  threshold: 8.5
-
-detection:
-  rate_limit: 1000
-  retention_days: 30
-
-api:
-  host: "0.0.0.0"
-  port: 8000
-```
-
-## 🛠️ Development
-
-### Project Structure
 ```
 transformer-waf/
 ├── src/
-│   ├── ingestion/          # Log ingestion (batch/streaming)
-│   ├── preprocessing/      # Parser, normalizer, tokenizer
-│   ├── models/            # Transformer model & training
-│   ├── api/               # FastAPI endpoints
-│   ├── storage/           # Detection store & database
-│   └── utils/             # Configuration & logging
-├── integration/           # Apache/Nginx integration
-├── scripts/              # Training, testing, demo scripts
-├── sample_apps/          # Test applications
-└── tests/                # Unit tests & attack payloads
+│   ├── api/            # FastAPI apps (detection/update)
+│   ├── ingestion/      # Batch/stream log ingestion
+│   ├── preprocessing/  # Parser, normalizer, tokenizer
+│   ├── models/         # Transformer model + training
+│   ├── storage/        # SQLite store for detections
+│   └── utils/          # Config, logging
+├── integration/        # Nginx/Apache helpers
+├── scripts/            # Train/demo/test scripts
+├── sample_apps/        # Small demo services
+└── tests/              # Unit tests and attack payloads
 ```
 
-### Adding New Features
-1. **New Attack Types**: Add patterns to `tests/attack_payloads.txt`
-2. **Custom Integrations**: Extend `integration/` modules
-3. **Model Improvements**: Modify `src/models/transformer_model.py`
-4. **UI Enhancements**: Update `src/api/static/detection_history.html`
+## Tech stack (simple)
 
-## 🎯 SIH Demonstration Points
+- FastAPI + Uvicorn: lightweight web servers for the Detection API (port 8000) and Update API (port 8001).
+- Python + PyTorch: trains and runs the Transformer model that assigns an anomaly score to requests.
+- SQLite: stores structured detection events so you can filter, review, and replay later.
+- Nginx/Apache (optional): integration examples to mirror/forward traffic to the detector for evaluation.
+- Docker Compose (optional): spins up APIs, demo apps, and Nginx quickly for a live demo.
 
-1. **🧠 AI-Powered**: "Uses Transformer architecture, not rule-based detection"
-2. **⚡ Real-time**: "Sub-second detection with non-blocking architecture"  
-3. **🔄 Adaptive**: "Learns from new benign traffic, reduces false positives"
-4. **🌐 Production-Ready**: "Integrates with Apache/Nginx, Docker deployment"
-5. **🔒 Privacy-Compliant**: "PII redaction, configurable retention, audit trails"
-6. **📊 Observable**: "Complete detection history, replay capability, metrics"
+Why a Transformer? It learns patterns from normal requests (paths, params, headers) and flags out‑of‑pattern inputs, so you don’t need to hand‑craft rules.
 
-## 📝 License
+## How detection works (in short)
 
-Built for Smart India Hackathon 2024. All rights reserved.
+1. The request is parsed and normalized (remove noise, standardize fields).
+2. It is tokenized into a sequence the model understands.
+3. The Transformer produces an anomaly score.
+4. If the score crosses the threshold, we mark it as suspicious and log it.
+5. All events (benign and suspicious) can be browsed in the History UI and used for retraining.
 
-## 🤝 Contributing
+## API endpoints (simple)
 
-This project implements the complete SIH problem statement for Transformer-based WAF with continuous learning capabilities.
+Base URL for Detection API: `http://localhost:8000`
 
----
+- POST `/detect`: Analyze one HTTP request. Returns `is_anomaly` and `score`.
 
-**Ready for SIH demonstration! 🚀**
+  Example body:
+
+  ```json
+  {
+    "method": "GET",
+    "path": "/search",
+    "query_params": {"q": "<script>alert(1)</script>"},
+    "headers": {},
+    "body": ""
+  }
+  ```
+
+- POST `/detect/batch`: Analyze many requests at once. Same schema, but send a list.
+
+- GET `/logs`: List detection events with optional filters like `is_anomaly`, `limit`, `path`.
+
+  Example: `GET /logs?is_anomaly=true&limit=10`
+
+- POST `/replay/{request_id}`: Re-run a past request with the current model (useful after retraining).
+
+- GET `/stats`: Summary counts (how many anomalies, totals, etc.).
+
+- GET `/metrics`: Performance metrics (latencies, throughput) for quick checks.
+
+- POST `/threshold`: Update the anomaly cutoff. Lower = more sensitive.
+
+- POST `/cleanup`: Remove old records based on retention settings.
+
+- GET `/history`: Simple web page to browse and filter events.
+
+Base URL for Update API: `http://localhost:8001`
+
+- POST `/retrain`: Start an incremental retraining job on new benign data.
+- GET `/retrain/status`: Check the current training job’s progress.
+- POST `/add_benign_data`: Add fresh benign samples to the training set.
+
+## Configuration
+
+Key settings live in `config.yaml` (threshold, retention, ports). Reasonable defaults are provided for the demo.
+
+## Model artifacts
+
+To keep the repo lean, large checkpoint files are not stored in Git. The quick‑train script creates a small checkpoint locally under `models/checkpoints/`. If you need a heavier model for experiments, store it outside Git (e.g., release assets or object storage) and point the loader to its path.
+
+## Troubleshooting
+
+- If ports are occupied, stop old `uvicorn` processes or change ports in `config.yaml`.
+- If the history page is empty, send a few requests first, then refresh.
+- If `pip install` fails, ensure Python 3.10+ and try `pip install --upgrade pip`.
+
+## License
+
+Built for Smart India Hackathon 2024.
+
+— Team WAF
