@@ -1,0 +1,3 @@
+2025-10-03 20:03:06.597 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
+2025-10-03 20:04:01.621 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
+2025-10-03 20:11:38.667 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
