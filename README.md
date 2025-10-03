@@ -183,6 +183,6 @@ To keep the repo lean, large checkpoint files are not stored in Git. The quick�
 
 ## License
 
-Built for Smart India Hackathon 2024.
+Built for Smart India Hackathon 2025.
 
-— Team WAF
+— Team SecuraFormer
