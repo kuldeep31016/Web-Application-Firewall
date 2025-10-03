@@ -1,1 +1,7 @@
 __pycache__/\nvenv/\n*.pyc\nlogs/\nmodels/checkpoints/\n.env\n.idea\n.vscode\n
+# Ignore large model checkpoints
+models/checkpoints/*.pt
+models/checkpoints/*.bin
+models/checkpoints/*.pth
+models/checkpoints/vocab.json
+!models/checkpoints/README.md
