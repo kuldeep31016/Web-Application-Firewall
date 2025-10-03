@@ -4,6 +4,12 @@ This repository contains a working prototype of a Web Application Firewall that 
 
 The focus is practicality: small, readable code, a repeatable demo, and clear setup instructions.
 
+## Quick links
+
+- Detection History (local): [http://localhost:8000/history](http://localhost:8000/history)
+- Detection API docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Update API docs: [http://localhost:8001/docs](http://localhost:8001/docs)
+
 ## What this does
 
 - Detects suspicious requests in real time using a trained Transformer (no rule lists)
