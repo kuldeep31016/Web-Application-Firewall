@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyze — Transformer WAF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+<script>try{var t=localStorage.getItem("waf_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<link rel="stylesheet" href="/static/app.css?v=4">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 5 9v10c0 9.2 6.4 16.6 15 18 8.6-1.4 15-8.8 15-18V9L20 3z" stroke="#2f7bff" stroke-width="2.5" fill="rgba(47,123,255,.12)"/><path d="m13 20 5 5 9-10" stroke="#4fb3ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t"><strong>Transformer <em>WAF</em></strong><span>AI-Powered Threat Protection</span></span></a>
+  <nav class="nav">
+    <a href="/">Overview</a>
+    <a href="/analyze" class="active">Analyze</a>
+    <a href="/research">Research</a>
+    <a href="/research#results">Results</a>
+    <a href="/history">History</a>
+    <a href="/docs">API</a>
+    <a href="/documentation">Documentation</a>
+  </nav>
+  <div class="right">
+    <label class="key"><span>API key</span><input type="password" id="apiKey" autocomplete="off"></label>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light / dark theme" title="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <a class="btn primary" href="/analyze">Get Started <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-head">
+    <div>
+      <div class="eyebrow">Detection</div>
+      <h1>Analyze a URL or HTTP request</h1>
+      <p>Test phishing detection, missing-information robustness and WAF anomaly scoring with the loaded models.</p>
+    </div>
+  </div>
+
+  <div class="statusbar" id="status" style="gap:10px"><span class="dim small">Loading models…</span></div>
+
+  <div class="grid side">
+    <section class="card">
+      <div class="card-head"><h2>URL analysis</h2><span class="badge neutral" id="urlModelBadge">—</span></div>
+      <form class="card-body" id="urlForm" novalidate>
+        <div class="fs">
+          <div class="fs-title">Input</div>
+          <div class="field">
+            <label for="urlInput">URL</label>
+            <input type="text" id="urlInput" placeholder="https://example.com/login?user=test" autocomplete="off" spellcheck="false" required>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="exampleSel">Load an example <span class="dim">(verified, known ground truth)</span></label>
+            <select id="exampleSel"><option value="">— choose an example —</option></select>
+            <div class="small muted hidden" id="exampleNote" style="margin-top:6px"></div>
+          </div>
+        </div>
+        <div class="fs">
+          <div class="fs-title">Simulate missing information</div>
+          <div class="checks grid2" id="featureChecks"><span class="dim small">Loading features…</span></div>
+        </div>
+        <div class="fs">
+          <div class="fs-title">Handling strategy</div>
+          <div class="radios" id="strategyRadios"></div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn primary" id="analyzeBtn">Analyze URL →</button>
+          <button type="button" class="btn" id="compareBtn" title="Complete → ticked segments removed (baseline) → same input with the mitigation">Run experiment</button>
+          <button type="button" class="btn" id="levelsBtn" title="Same URL at 0 / 10 / 30 / 50 % missing information, baseline and mitigated">Missing-level tests</button>
+          <button type="button" class="btn" id="clearBtn">Clear</button>
+        </div>
+        <div class="notice hidden" id="urlNotice" style="margin-top:12px"></div>
+      </form>
+    </section>
+
+    <section class="card" id="resultCard">
+      <div class="card-head"><h2>Result</h2><span class="dim small" id="resultTime"></span></div>
+      <div class="card-body" id="resultBody"><div class="empty">Enter a URL and choose which information the model may not see. Results appear here.</div></div>
+      <div class="card-body hidden" id="compareBody"></div>
+    </section>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <section class="card" id="request">
+    <div class="card-head"><h2>HTTP request analysis (WAF anomaly model)</h2><span class="badge neutral" id="wafBadge">—</span></div>
+    <div class="grid cols-2">
+      <form class="card-body" id="reqForm" novalidate>
+        <div class="row">
+          <div class="field" style="flex:0 0 120px">
+            <label for="method">Method</label>
+            <select id="method"><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option><option>OPTIONS</option></select>
+          </div>
+          <div class="field">
+            <label for="path">Path</label>
+            <input type="text" id="path" value="/search" spellcheck="false">
+          </div>
+        </div>
+        <div class="field">
+          <label for="query">Query parameters <span class="dim">(one key=value per line)</span></label>
+          <textarea id="query" rows="3">q=&lt;script&gt;alert(1)&lt;/script&gt;</textarea>
+        </div>
+        <div class="field">
+          <label for="body">Body</label>
+          <textarea id="body" rows="2" placeholder="optional"></textarea>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn primary" id="detectBtn">Run detection</button>
+        </div>
+        <div class="notice hidden" id="reqNotice" style="margin-top:12px"></div>
+      </form>
+      <div class="card-body" id="reqResult"><div class="empty">Submit a request to score it against the WAF model (<code>POST /detect</code>).</div></div>
+    </div>
+  </section>
+</main>
+
+<script src="/static/app.js?v=4"></script>
+<script>
+(function () {
+  const { api, esc, pct, num, fmtTime, setBusy, notice, clearNotice, modelText } = WAF;
+  let status = null;
+
+  async function loadStatus() {
+    const bar = document.getElementById("status");
+    try {
+      status = await api("/url/status");
+      const ds = status.dataset;
+      const b = (ok, label) => `<span class="badge ${ok ? "ok" : "bad"}">● ${esc(label)}</span>`;
+      bar.innerHTML = b(status.models.baseline.loaded, "URL classifier") + b(status.models.robust.loaded, "Robust classifier") + b(status.waf_available, "WAF anomaly model")
+        + `<span class="dim small" style="margin-left:auto">${ds && !ds.error ? `${ds.n_total.toLocaleString()} labeled URLs · test split ${ds.split_counts.test.toLocaleString()}` : "dataset not available"}${status.models.baseline.trained_at ? ` · trained ${esc(status.models.baseline.trained_at.slice(0, 10))}` : ""}</span>`;
+      document.getElementById("urlModelBadge").textContent = status.ready ? "model ready" : "model missing";
+      document.getElementById("urlModelBadge").className = "badge " + (status.ready ? "ok" : "bad");
+      document.getElementById("wafBadge").textContent = status.waf_available ? "model ready" : "model missing";
+      document.getElementById("wafBadge").className = "badge " + (status.waf_available ? "ok" : "warn");
+      renderControls();
+    } catch (e) {
+      bar.innerHTML = `<span class="badge bad">status unavailable</span> <span>${esc(e.message)}</span>`;
+    }
+  }
+
+  function renderControls() {
+    const checks = document.getElementById("featureChecks");
+    checks.innerHTML = status.features.map(f =>
+      `<label title="${esc(f.description)}"><input type="checkbox" name="feature" value="${esc(f.name)}"> ${esc(f.name.charAt(0).toUpperCase() + f.name.slice(1))}</label>`).join("");
+    const radios = document.getElementById("strategyRadios");
+    radios.innerHTML = status.strategies.map((s, i) =>
+      `<label class="${s.available ? "" : "disabled"}"><input type="radio" name="strategy" value="${esc(s.name)}" ${i === 0 ? "checked" : ""} ${s.available ? "" : "disabled"}>
+        <span><strong>${esc(labelFor(s.name))}</strong> <span class="dim small mono">${esc(s.model_variant)} model</span><span class="hint">${esc(s.description)}</span></span></label>`).join("");
+  }
+  function labelFor(name) {
+    return { none: "No handling", missing_token: "[MISSING] marker", augmented_training: "Robust / mitigation" }[name] || name;
+  }
+
+  let examples = [];
+  async function loadExamples() {
+    const sel = document.getElementById("exampleSel");
+    try {
+      const res = await fetch("/static/examples.json");
+      examples = (await res.json()).examples;
+      let group = null;
+      let html = '<option value="">— choose an example —</option>';
+      examples.forEach((ex, i) => {
+        if (ex.group !== group) { if (group !== null) html += "</optgroup>"; html += `<optgroup label="${esc(ex.group)}">`; group = ex.group; }
+        html += `<option value="${i}">${esc(ex.url)}</option>`;
+      });
+      if (group !== null) html += "</optgroup>";
+      sel.innerHTML = html;
+    } catch (e) {
+      sel.innerHTML = '<option value="">examples unavailable</option>';
+    }
+  }
+  document.getElementById("exampleSel").addEventListener("change", (ev) => {
+    const note = document.getElementById("exampleNote");
+    const ex = examples[ev.target.value];
+    if (!ex) { note.classList.add("hidden"); return; }
+    document.getElementById("urlInput").value = ex.url;
+    const wanted = new Set(ex.try.missing_features || []);
+    document.querySelectorAll('input[name=feature]').forEach(c => c.checked = wanted.has(c.value));
+    const truth = ex.label === null ? "not in the dataset" : (ex.label === 1 ? "phishing" : "legitimate");
+    note.innerHTML = `<b>Ground truth:</b> ${esc(truth)} (${esc(ex.source)}). <b>Expected:</b> ${esc(ex.expected)}`;
+    note.classList.remove("hidden");
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", () => {
+    document.getElementById("exampleSel").value = "";
+    document.getElementById("exampleNote").classList.add("hidden");
+    document.getElementById("compareBody").classList.add("hidden");
+    document.getElementById("urlInput").value = "";
+    document.querySelectorAll('input[name=feature]').forEach(c => c.checked = false);
+    clearNotice(document.getElementById("urlNotice"));
+  });
+
+  document.getElementById("urlForm").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const n = document.getElementById("urlNotice");
+    clearNotice(n);
+    const url = document.getElementById("urlInput").value.trim();
+    if (!url) { notice(n, "error", "Enter a URL to analyze."); return; }
+    const missing = [...document.querySelectorAll('input[name=feature]:checked')].map(c => c.value);
+    const strategyEl = document.querySelector('input[name=strategy]:checked');
+    const strategy = strategyEl ? strategyEl.value : "none";
+    const btn = document.getElementById("analyzeBtn");
+    setBusy(btn, true, "Analyzing…");
+    try {
+      const r = await api("/detect/url", { method: "POST", body: { url, missing_features: missing, strategy } });
+      renderResult(r);
+    } catch (e) {
+      notice(n, "error", e.message);
+    } finally { setBusy(btn, false); }
+  });
+
+  function renderResult(r) {
+    document.getElementById("resultTime").textContent = fmtTime(r.timestamp);
+    const p = r.phishing_probability;
+    const cls = r.is_phishing ? "phish" : "legit";
+    const unavailable = r.missing_features;
+    const total = Object.keys(r.segments).length, avail = total - unavailable.length, pctv = Math.round(avail / total * 100);
+    const ctx = `${r.model_variant === "robust" ? "ROBUST" : "BASELINE"} · ${unavailable.length ? unavailable.length + " SEGMENT" + (unavailable.length > 1 ? "S" : "") + " MISSING" : "COMPLETE INFORMATION"}`;
+    const segRows = Object.entries(r.segments).map(([k, v]) => {
+      const isMissing = unavailable.includes(k);
+      const val = v ? esc(v) : '<span class="seg-absent">absent in URL</span>';
+      return `<tr><td class="mono">${esc(k)}</td><td>${isMissing ? `<span class="seg-missing">unavailable</span> <span class="dim">(${v ? "hidden from model" : "was absent anyway"})</span>` : val}</td></tr>`;
+    }).join("");
+    const waf = r.waf;
+    const wafHtml = waf ? `
+      <dl class="kv" style="margin-top:8px">
+        <dt>request text</dt><dd class="mono">${esc(waf.request_text)}</dd>
+        <dt>anomaly score</dt><dd class="mono">${num(waf.anomaly_score)} <span class="dim">threshold ${num(waf.threshold)}</span></dd>
+        <dt>verdict</dt><dd><span class="badge ${waf.is_anomaly ? "warn" : "ok"}">${waf.is_anomaly ? "anomalous request" : "normal request"}</span></dd>
+      </dl>` : `<p class="dim small" style="margin-top:8px">WAF model not loaded — request scoring unavailable.</p>`;
+
+    document.getElementById("resultBody").innerHTML = `
+      <div class="ctx-badge">${esc(ctx)}</div>
+      <div class="verdict ${cls}" style="margin-top:10px">
+        <div style="flex:1">
+          <div class="label">${r.is_phishing ? "⚠ Phishing" : "✓ Legitimate"}</div>
+          <dl class="kv compact-kv" style="margin-top:10px">
+            <dt>probability</dt><dd class="mono">${pct(p)}</dd>
+            <dt>threshold</dt><dd class="mono">${pct(r.threshold, 0)}</dd>
+            <dt>inference</dt><dd class="mono">${num(r.inference_ms, 1)} ms</dd>
+          </dl>
+          <div class="meter ${cls}"><i style="width:${(p * 100).toFixed(1)}%"></i></div>
+        </div>
+      </div>
+      <div class="grid cols-2" style="margin-top:14px;gap:12px">
+        <div class="tile"><div class="eyebrow">Information available</div><div class="v" style="margin-top:6px">${avail} / ${total} <span class="dim" style="font-size:14px">segments · ${pctv}%</span></div><div class="meter ${pctv === 100 ? "legit" : ""}"><i style="width:${pctv}%"></i></div></div>
+        <div class="tile"><div class="eyebrow">Missing information</div><div style="margin-top:8px">${unavailable.length ? unavailable.map(m => `<span class="chip miss">${esc(m)}</span>`).join(" ") : '<span class="dim">none — complete URL</span>'}</div>${r.unavailable_present_features.length < unavailable.length ? `<div class="dim small" style="margin-top:6px">some were absent in the URL anyway</div>` : ""}</div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="eyebrow" style="margin-bottom:6px">Text seen by the model</div>
+        <div class="model-text">${modelText(r.model_text)}</div>
+      </div>
+      <dl class="kv" style="margin-top:16px">
+        <dt>model</dt><dd>URL classifier · <span class="mono">${esc(r.model_variant)}</span> variant${r.model_trained_at ? ` <span class="dim">(trained ${esc(r.model_trained_at.slice(0, 10))})</span>` : ""}</dd>
+        <dt>strategy</dt><dd class="mono">${esc(r.strategy)} / ${esc(r.representation)}</dd>
+        <dt>request id</dt><dd class="mono dim">${esc(r.request_id)}</dd>
+      </dl>
+      <details style="margin-top:16px">
+        <summary class="eyebrow" style="cursor:pointer">URL segments &amp; descriptive info</summary>
+        <div class="table-wrap" style="margin-top:8px"><table><thead><tr><th>Segment</th><th>Value</th></tr></thead><tbody>${segRows}</tbody></table></div>
+        <dl class="kv" style="margin-top:12px">
+          <dt>url length</dt><dd class="mono">${r.descriptive.url_length}</dd>
+          <dt>host</dt><dd class="mono">${esc(r.descriptive.host)} <span class="dim">(${r.descriptive.host_is_ip ? "IP address" : r.descriptive.subdomain_count + " subdomain label(s)"})</span></dd>
+          <dt>https</dt><dd class="mono">${r.descriptive.is_https ? "yes" : "no"}</dd>
+          <dt>query params</dt><dd class="mono">${r.descriptive.query_param_count}</dd>
+        </dl>
+      </details>
+      <details style="margin-top:10px">
+        <summary class="eyebrow" style="cursor:pointer">WAF anomaly model (equivalent GET request)</summary>
+        ${wafHtml}
+      </details>`;
+  }
+
+  function truthFor(url) {
+    const ex = examples.find(e => e.url === url);
+    if (!ex) return null;
+    return ex.label === null ? "not in dataset" : (ex.label === 1 ? "PHISHING" : "LEGITIMATE");
+  }
+  function storyCard(kind, title, sub, r) {
+    return `<div class="story-step ${kind}"><div class="ss-h"><span class="eyebrow">${esc(title)}</span><span class="dim small">${esc(sub)}</span></div>
+      <div class="ss-v" style="color:${r.is_phishing ? "var(--danger)" : "var(--success)"}">${r.is_phishing ? "PHISHING" : "LEGITIMATE"} <span class="mono" style="font-size:13px;color:var(--ink-2)">${pct(r.phishing_probability, 2)} phishing</span></div>
+      <div class="model-text small">${modelText(r.model_text)}</div></div>`;
+  }
+  document.getElementById("compareBtn").addEventListener("click", async () => {
+    const n = document.getElementById("urlNotice");
+    clearNotice(n);
+    const url = document.getElementById("urlInput").value.trim();
+    if (!url) { notice(n, "error", "Enter a URL first."); return; }
+    const missing = [...document.querySelectorAll('input[name=feature]:checked')].map(c => c.value);
+    if (!missing.length) { notice(n, "error", "Tick at least one segment to remove, then run the experiment."); return; }
+    const btn = document.getElementById("compareBtn");
+    const body = document.getElementById("compareBody");
+    setBusy(btn, true, "Running…");
+    try {
+      const complete = await api("/detect/url", { method: "POST", body: { url, strategy: "none" } });
+      const none = await api("/detect/url", { method: "POST", body: { url, missing_features: missing, strategy: "none" } });
+      const robust = await api("/detect/url", { method: "POST", body: { url, missing_features: missing, strategy: "augmented_training" } });
+      const truth = truthFor(url);
+      body.innerHTML = `
+        <div class="eyebrow" style="margin-bottom:10px">Missing-information experiment</div>
+        <div class="story-step"><div class="ss-h"><span class="eyebrow">Ground truth</span></div><div class="ss-v">${truth ? esc(truth) : '<span class="dim">unknown (not a dataset example)</span>'}</div><div class="mono small dim">${esc(url)}</div></div>
+        <div class="ss-arrow">↓</div>
+        ${storyCard("", "Complete information", "baseline model · 7 / 7 segments", complete)}
+        <div class="ss-arrow">↓ &nbsp;<span class="chip miss">${missing.map(esc).join(" + ")} removed</span></div>
+        ${storyCard("", "Baseline model", "no handling · " + (7 - missing.length) + " / 7 segments", none)}
+        <div class="ss-arrow">↓ &nbsp;<span class="chip">same input · mitigation</span></div>
+        ${storyCard("hi", "Robust / mitigated model", "trained with incomplete examples", robust)}
+        <p class="dim small" style="margin-top:10px">Three real inferences on the same URL; stored in the URL history.</p>`;
+      body.classList.remove("hidden");
+      body.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (e) {
+      notice(n, "error", e.message);
+    } finally { setBusy(btn, false); }
+  });
+
+  /* Missing-level tests: same URL at 0/10/30/50 % (each segment removed with that probability,
+     seeded so the run is reproducible), baseline and mitigated. */
+  function mulberry32(a) { return function () { let t = a += 0x6D2B79F5; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  document.getElementById("levelsBtn").addEventListener("click", async () => {
+    const n = document.getElementById("urlNotice");
+    clearNotice(n);
+    const url = document.getElementById("urlInput").value.trim();
+    if (!url) { notice(n, "error", "Enter a URL first."); return; }
+    const btn = document.getElementById("levelsBtn");
+    const body = document.getElementById("compareBody");
+    setBusy(btn, true, "Running 5 tests…");
+    try {
+      const names = status.features.map(f => f.name);
+      const seed = 42;
+      const draw = (rate, k) => { const rnd = mulberry32(seed + k * 1000 + Math.round(rate * 100)); return rate === 0 ? [] : names.filter(() => rnd() < rate); };
+      const tests = [
+        { t: "Test 1 · Complete", rate: 0, strategy: "none" },
+        { t: "Test 2 · 10 % missing", rate: 0.1, strategy: "none" },
+        { t: "Test 3 · 30 % missing", rate: 0.3, strategy: "none" },
+        { t: "Test 4 · 50 % missing", rate: 0.5, strategy: "none" },
+        { t: "Test 5 · 50 % missing + mitigation", rate: 0.5, strategy: "augmented_training" },
+      ];
+      const rows = [];
+      let lastMissing = [];
+      for (let i = 0; i < tests.length; i++) {
+        const missing = tests[i].strategy === "augmented_training" ? lastMissing : draw(tests[i].rate, i);
+        if (tests[i].strategy === "none") lastMissing = missing;
+        const r = await api("/detect/url", { method: "POST", body: { url, missing_features: missing, strategy: tests[i].strategy } });
+        rows.push({ ...tests[i], missing, r });
+      }
+      const truth = truthFor(url);
+      body.innerHTML = `
+        <div class="eyebrow" style="margin-bottom:10px">Missing-level tests · seed ${seed}${truth ? ` · ground truth <b>${esc(truth)}</b>` : ""}</div>
+        <div class="table-wrap"><table><thead><tr><th>Test</th><th>Removed</th><th>Model</th><th>Prediction</th><th class="num">p(phishing)</th><th>Text seen</th></tr></thead><tbody>
+          ${rows.map(x => `<tr><td>${esc(x.t)}</td><td>${x.missing.length ? x.missing.map(m => `<span class="chip miss">${esc(m)}</span>`).join(" ") : '<span class="dim">none</span>'}</td><td class="mono small">${esc(x.r.model_variant)}</td><td style="color:${x.r.is_phishing ? "var(--danger)" : "var(--success)"};font-weight:600">${x.r.is_phishing ? "PHISHING" : "LEGITIMATE"}</td><td class="num">${pct(x.r.phishing_probability, 2)}</td><td class="mono small">${modelText(x.r.model_text)}</td></tr>`).join("")}
+        </tbody></table></div>
+        <p class="dim small" style="margin-top:10px">At each level every segment is removed independently with that probability (seeded); test 5 reuses test 4's removed segments with the robust model. Five real inferences, stored in the URL history. Aggregate results over the whole test split are on the <a href="/research#results">Results</a> page.</p>`;
+      body.classList.remove("hidden");
+      body.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (e) {
+      notice(n, "error", e.message);
+    } finally { setBusy(btn, false); }
+  });
+
+  document.getElementById("reqForm").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const n = document.getElementById("reqNotice");
+    clearNotice(n);
+    const query_params = {};
+    document.getElementById("query").value.split("\n").map(l => l.trim()).filter(Boolean).forEach(line => {
+      const i = line.indexOf("=");
+      if (i < 0) query_params[line] = ""; else query_params[line.slice(0, i)] = line.slice(i + 1);
+    });
+    const payload = {
+      method: document.getElementById("method").value,
+      path: document.getElementById("path").value.trim() || "/",
+      query_params, headers: {}, body: document.getElementById("body").value,
+    };
+    const btn = document.getElementById("detectBtn");
+    setBusy(btn, true, "Scoring…");
+    try {
+      const r = await api("/detect", { method: "POST", body: payload });
+      const cls = r.is_anomaly ? "phish" : "legit";
+      document.getElementById("reqResult").innerHTML = `
+        <div class="verdict ${cls}">
+          <div style="flex:1">
+            <div class="label">${r.is_anomaly ? "Anomalous request" : "Normal request"}</div>
+            <div class="meta">anomaly score ${num(r.anomaly_score)} (mean next-token NLL) · confidence ${num(r.confidence, 2)} · ${fmtTime(parseFloat(r.timestamp))}</div>
+          </div>
+        </div>
+        <dl class="kv" style="margin-top:16px">
+          <dt>request id</dt><dd class="mono dim">${esc(r.request_id)}</dd>
+          <dt>stored</dt><dd>yes — see <a href="/history">History</a></dd>
+        </dl>
+        <p class="dim small" style="margin-top:12px">The anomaly model is trained only on benign traffic; a high score means the request is unlike that traffic. It is not a phishing decision.</p>`;
+    } catch (e) {
+      notice(n, "error", e.message);
+    } finally { setBusy(btn, false); }
+  });
+
+  loadStatus();
+  loadExamples();
+})();
+</script>
+</body>
+</html>

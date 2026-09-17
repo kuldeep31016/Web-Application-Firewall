@@ -1,0 +1,51 @@
+{
+  "variant": "robust",
+  "trained_at": "2026-09-16T22:02:07",
+  "train_seconds": 913.4,
+  "train_config": {
+    "epochs": 3,
+    "batch_size": 256,
+    "lr": 0.0005,
+    "max_len": 48,
+    "vocab_size": 8000,
+    "embed_dim": 128,
+    "num_heads": 4,
+    "num_layers": 3,
+    "ff_dim": 256,
+    "dropout": 0.1,
+    "seed": 42,
+    "max_train_samples": null,
+    "aug_max_rate": 0.5,
+    "aug_representation": "missing_token",
+    "device": "cpu"
+  },
+  "n_train": 164754,
+  "n_val": 23536,
+  "vocab_path": "models/phishing/vocab.json",
+  "vocab_tokens": 8000,
+  "dataset_sha256": "1b9cc330ff60e70fe698e6cecff4f02be2d99fecabd9134d5f2d56524b94d6ae",
+  "dataset_path": "data/phishing/urls.csv",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.140776041449736,
+      "val_accuracy": 0.9973657375934738,
+      "val_f1": 0.9969068050289364
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.11405193622322371,
+      "val_accuracy": 0.9971532970768185,
+      "val_f1": 0.9966558522585475
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.11139253020194007,
+      "val_accuracy": 0.9978755948334467,
+      "val_f1": 0.9975067318240749
+    }
+  ],
+  "best_val_f1": 0.9975067318240749,
+  "mitigation": "missing_information_augmentation",
+  "vocab_sha256": "a79f7bed48ece41b1549e37e15ebf20c31ff32eeb0d529a36d882e011541a01d"
+}

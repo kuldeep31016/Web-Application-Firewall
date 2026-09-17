@@ -16,7 +16,7 @@ training:
   early_stopping_patience: 5
 
 detection:
-  threshold: 0.75
+  threshold: 3.0565
   batch_size: 16
   max_latency_ms: 50
 

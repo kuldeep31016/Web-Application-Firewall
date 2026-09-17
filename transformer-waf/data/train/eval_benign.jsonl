@@ -1,0 +1,331 @@
+{"text": "PUT /careers?", "label": "benign"}
+{"text": "POST /faq?currency=staging&format=pdf&page=526&sort=name", "label": "benign"}
+{"text": "GET /shipping?page=405&start_date=dev", "label": "benign"}
+{"text": "PUT /cart? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "POST /customer/5155?order=date&start_date=staging&type=active", "label": "benign"}
+{"text": "PATCH /api/auth? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "POST /view? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "DELETE /cart/8726?created_at=true&page=479&view=detailed", "label": "benign"}
+{"text": "PUT /dashboard? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "DELETE /status?", "label": "benign"}
+{"text": "PUT /inventory?offset=558&type=active&view=light", "label": "benign"}
+{"text": "HEAD /receipt?", "label": "benign"}
+{"text": "POST /dashboard?", "label": "benign"}
+{"text": "POST /meetings/update?", "label": "benign"}
+{"text": "HEAD /demo/edit?", "label": "benign"}
+{"text": "GET /api-keys?", "label": "benign"}
+{"text": "PATCH /reset-password?offset=168&page=708&search=dev&version=prod", "label": "benign"}
+{"text": "PUT /about?format=html&version=test", "label": "benign"}
+{"text": "PUT /features?category=false&lang=de&mode=dark", "label": "benign"}
+{"text": "OPTIONS /issues?format=pdf", "label": "benign"}
+{"text": "POST /api/orders/3977?filter=staging&start_date=true BODY:{\"name\": \"item_900\", \"value\": 82, \"active\": false}", "label": "benign"}
+{"text": "PATCH /calendar?theme=detailed", "label": "benign"}
+{"text": "GET /meetings/6452?mode=detailed&product_id=943&sort=desc", "label": "benign"}
+{"text": "POST /products? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /details?id=123&type=product", "label": "benign"}
+{"text": "PUT /images?", "label": "benign"}
+{"text": "POST /schedule?locale=de&mode=compact", "label": "benign"}
+{"text": "POST /faq? BODY:{\"name\": \"item_484\", \"value\": 42, \"active\": false}", "label": "benign"}
+{"text": "PATCH /timeline/1831?end_date=prod", "label": "benign"}
+{"text": "HEAD /login/6838?end_date=test&order=id&q=test&type=pending", "label": "benign"}
+{"text": "GET /item?limit=10&page=1", "label": "benign"}
+{"text": "PATCH /search? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "OPTIONS /import?", "label": "benign"}
+{"text": "PATCH /search/1856?category=staging BODY:{\"name\": \"item_549\", \"value\": 92, \"active\": false}", "label": "benign"}
+{"text": "PATCH /appointments?limit=318", "label": "benign"}
+{"text": "PUT /receipt? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /item?search=technology BODY:category=electronics", "label": "benign"}
+{"text": "POST /invoice/view?", "label": "benign"}
+{"text": "PUT /config/8365?format=json&order=name&start_date=prod BODY:{\"name\": \"item_693\", \"value\": 64, \"active\": false}", "label": "benign"}
+{"text": "DELETE /contact/8347?created_at=test&theme=dark", "label": "benign"}
+{"text": "POST /api/data?", "label": "benign"}
+{"text": "DELETE /logs/8416?", "label": "benign"}
+{"text": "DELETE /profile?mode=light&search=false&type=pending&user_id=637", "label": "benign"}
+{"text": "OPTIONS /tutorials/details?sort=desc", "label": "benign"}
+{"text": "GET /api/v2/users?updated_at=dev", "label": "benign"}
+{"text": "GET /help?id=123&type=product", "label": "benign"}
+{"text": "POST /health/9424?limit=930&mode=compact&type=completed&version=false", "label": "benign"}
+{"text": "POST /monitoring?page=79&search=test&sort=id", "label": "benign"}
+{"text": "POST /health?", "label": "benign"}
+{"text": "GET /about?search=technology BODY:category=electronics", "label": "benign"}
+{"text": "PUT /news? BODY:{\"name\": \"item_751\", \"value\": 89, \"active\": true}", "label": "benign"}
+{"text": "GET /private/files?created_at=true", "label": "benign"}
+{"text": "POST /security/view?created_at=true&currency=test&locale=it&updated_at=dev BODY:{\"name\": \"item_435\", \"value\": 89, \"active\": false}", "label": "benign"}
+{"text": "GET /meetings/details?lang=it&page=857", "label": "benign"}
+{"text": "GET /docs/2211/edit?lang=en&locale=ru&order=id", "label": "benign"}
+{"text": "DELETE /details?", "label": "benign"}
+{"text": "PATCH /home? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /config?product_id=902", "label": "benign"}
+{"text": "OPTIONS /api/payments/3893?end_date=false&format=json&product_id=343&search=prod", "label": "benign"}
+{"text": "PATCH /api/auth?order=date&search=false&theme=light", "label": "benign"}
+{"text": "PATCH /performance?category=false&id=963&mode=detailed", "label": "benign"}
+{"text": "PUT /shipping?category=dev&end_date=staging&offset=48&search=dev", "label": "benign"}
+{"text": "HEAD /status/details?", "label": "benign"}
+{"text": "PATCH /settings/4374?", "label": "benign"}
+{"text": "PUT /features?created_at=prod&q=dev BODY:{\"name\": \"item_298\", \"value\": 55, \"active\": false}", "label": "benign"}
+{"text": "PUT /faq? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /inventory?q=test", "label": "benign"}
+{"text": "HEAD /desktop/client/history?search=dev&timezone=staging&version=test", "label": "benign"}
+{"text": "POST /category? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /images?limit=10&page=1", "label": "benign"}
+{"text": "PATCH /cart? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /timeline/1265?category=dev&lang=es", "label": "benign"}
+{"text": "GET /services?id=123&type=product", "label": "benign"}
+{"text": "PATCH /invoice/7879/update?start_date=dev&view=light", "label": "benign"}
+{"text": "HEAD /backup?", "label": "benign"}
+{"text": "PUT /shop?limit=134&order=created_at", "label": "benign"}
+{"text": "PATCH /order? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /edit?", "label": "benign"}
+{"text": "POST /events?currency=true&format=pdf&updated_at=true", "label": "benign"}
+{"text": "GET /blog?page=1 BODY:limit=10", "label": "benign"}
+{"text": "PATCH /videos?locale=it&mode=compact&search=prod&sort=asc", "label": "benign"}
+{"text": "GET /blog?id=123 BODY:type=product", "label": "benign"}
+{"text": "DELETE /products?", "label": "benign"}
+{"text": "PUT /dashboard? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /admin/users? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "DELETE /search/edit?currency=false&offset=53&view=compact", "label": "benign"}
+{"text": "POST /search?", "label": "benign"}
+{"text": "POST /docs?created_at=test&lang=es&limit=520&page=692", "label": "benign"}
+{"text": "HEAD /blog/5128/details?end_date=test&sort=id&version=dev", "label": "benign"}
+{"text": "DELETE /invoice/7313?version=true", "label": "benign"}
+{"text": "POST /dashboard? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /download?", "label": "benign"}
+{"text": "OPTIONS /admin?", "label": "benign"}
+{"text": "POST /settings/509?created_at=prod&filter=prod BODY:{\"name\": \"item_891\", \"value\": 75, \"active\": false}", "label": "benign"}
+{"text": "GET /feedback/update?end_date=true&filter=dev&start_date=false", "label": "benign"}
+{"text": "POST /contact/edit?order=desc&user_id=376", "label": "benign"}
+{"text": "OPTIONS /shipping/delete?", "label": "benign"}
+{"text": "HEAD /files/6487?", "label": "benign"}
+{"text": "PUT /? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /profile? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /upload?", "label": "benign"}
+{"text": "GET /metrics?id=732&page=956&product_id=830&timezone=dev", "label": "benign"}
+{"text": "HEAD /features/5077?mode=auto&page=825&sort=asc&user_id=423", "label": "benign"}
+{"text": "GET /profile?id=123 BODY:type=product", "label": "benign"}
+{"text": "OPTIONS /tracking?end_date=test&locale=de", "label": "benign"}
+{"text": "PUT /feedback? BODY:{\"name\": \"item_56\", \"value\": 32, \"active\": false}", "label": "benign"}
+{"text": "PUT /private/files/details?format=csv&search=dev&sort=asc BODY:{\"name\": \"item_400\", \"value\": 34, \"active\": true}", "label": "benign"}
+{"text": "PUT /services? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PATCH /export?format=csv", "label": "benign"}
+{"text": "POST /feedback?limit=901&q=prod&search=false", "label": "benign"}
+{"text": "PUT /web/interface/6534/delete?created_at=prod&limit=765", "label": "benign"}
+{"text": "PUT /api/v2/users?mode=detailed&version=test BODY:{\"name\": \"item_209\", \"value\": 8, \"active\": true}", "label": "benign"}
+{"text": "PUT /shop?mode=compact&offset=81&theme=compact", "label": "benign"}
+{"text": "HEAD /login/594?mode=detailed&q=prod", "label": "benign"}
+{"text": "HEAD /messages/history?", "label": "benign"}
+{"text": "PUT /articles?created_at=true&search=true BODY:{\"name\": \"item_745\", \"value\": 38, \"active\": true}", "label": "benign"}
+{"text": "POST /download?id=138&type=inactive", "label": "benign"}
+{"text": "OPTIONS /forgot-password/3236?format=html&limit=95&start_date=prod&version=dev", "label": "benign"}
+{"text": "DELETE /alerts?created_at=dev&search=dev&timezone=prod&user_id=808", "label": "benign"}
+{"text": "PATCH /webhooks?currency=dev&sort=created_at&start_date=true BODY:{\"name\": \"item_361\", \"value\": 14, \"active\": true}", "label": "benign"}
+{"text": "PATCH /reset-password?search=prod", "label": "benign"}
+{"text": "DELETE /documents?", "label": "benign"}
+{"text": "PUT /contact? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "HEAD /webhooks/details?end_date=true&order=asc&start_date=true", "label": "benign"}
+{"text": "POST /upload? BODY:file_content_here", "label": "benign"}
+{"text": "PUT /receipt?", "label": "benign"}
+{"text": "PATCH /admin/reports? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /search/9702?currency=false&type=inactive", "label": "benign"}
+{"text": "PUT /tokens/5288?format=pdf&status=inactive&timezone=prod BODY:{\"name\": \"item_245\", \"value\": 55, \"active\": false}", "label": "benign"}
+{"text": "DELETE /api/v2/users?currency=test&end_date=test&theme=light&type=completed", "label": "benign"}
+{"text": "PATCH /item? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PATCH /cart?order=desc&status=draft BODY:{\"name\": \"item_684\", \"value\": 4, \"active\": true}", "label": "benign"}
+{"text": "PATCH /blog? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PATCH /tokens/5836?filter=staging", "label": "benign"}
+{"text": "POST /item? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "HEAD /videos/delete?end_date=true", "label": "benign"}
+{"text": "PUT /login? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /guides/view?end_date=true", "label": "benign"}
+{"text": "GET /help?category=test&sort=id&timezone=false", "label": "benign"}
+{"text": "OPTIONS /support/4893?filter=test&format=json&order=date&page=349", "label": "benign"}
+{"text": "PUT /upload? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /guides?id=862&q=prod&type=inactive", "label": "benign"}
+{"text": "PATCH /payment/details?created_at=staging&id=487 BODY:{\"name\": \"item_49\", \"value\": 67, \"active\": true}", "label": "benign"}
+{"text": "DELETE /tutorials?locale=en&page=264&view=detailed", "label": "benign"}
+{"text": "HEAD /reviews?q=true", "label": "benign"}
+{"text": "OPTIONS /events/update?filter=prod", "label": "benign"}
+{"text": "GET /api/users?category=electronics&search=technology", "label": "benign"}
+{"text": "PATCH /admin/settings? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "DELETE /features/3691/history?offset=46", "label": "benign"}
+{"text": "PATCH /images? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "HEAD /news/8971?filter=true&product_id=180&q=dev&updated_at=prod", "label": "benign"}
+{"text": "PUT /view? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "HEAD /admin?", "label": "benign"}
+{"text": "GET /shop?search=staging", "label": "benign"}
+{"text": "GET /admin/users?limit=10&page=1", "label": "benign"}
+{"text": "DELETE /inventory/360?filter=staging&lang=ru&offset=532&start_date=dev", "label": "benign"}
+{"text": "GET /order?", "label": "benign"}
+{"text": "POST /checkout? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /api/auth/update?", "label": "benign"}
+{"text": "DELETE /invoice/8359?", "label": "benign"}
+{"text": "OPTIONS /events?mode=compact&start_date=test&theme=light", "label": "benign"}
+{"text": "PATCH /upload?", "label": "benign"}
+{"text": "HEAD /reset-password/4936/delete?currency=false&lang=fr&search=true", "label": "benign"}
+{"text": "POST /receipt? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /export/7292/edit? BODY:{\"name\": \"item_894\", \"value\": 3, \"active\": false}", "label": "benign"}
+{"text": "GET /metrics?start_date=staging", "label": "benign"}
+{"text": "PUT /settings?timezone=prod&view=auto", "label": "benign"}
+{"text": "GET /browse?limit=10&page=1", "label": "benign"}
+{"text": "DELETE /tickets?filter=prod&limit=388", "label": "benign"}
+{"text": "HEAD /payment?updated_at=prod", "label": "benign"}
+{"text": "PATCH /details? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /edit?id=123 BODY:type=product", "label": "benign"}
+{"text": "POST /checkout? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PATCH /images? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PATCH /public/assets?end_date=test&id=67&updated_at=dev", "label": "benign"}
+{"text": "OPTIONS /tracking?", "label": "benign"}
+{"text": "HEAD /appointments?order=created_at&status=completed", "label": "benign"}
+{"text": "GET /checkout?page=1 BODY:limit=10", "label": "benign"}
+{"text": "POST /images? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "POST /restore/6564/edit? BODY:{\"name\": \"item_907\", \"value\": 19, \"active\": true}", "label": "benign"}
+{"text": "HEAD /docs/2642?created_at=false&lang=de&version=true", "label": "benign"}
+{"text": "DELETE /login/8743?created_at=staging&format=html&offset=188&view=dark", "label": "benign"}
+{"text": "PATCH /shipping/3445?currency=test&id=644&mode=dark&theme=auto", "label": "benign"}
+{"text": "POST /meetings?order=id&page=351&user_id=810 BODY:{\"name\": \"item_138\", \"value\": 77, \"active\": true}", "label": "benign"}
+{"text": "OPTIONS /inventory?", "label": "benign"}
+{"text": "DELETE /upload?", "label": "benign"}
+{"text": "GET /profile?category=electronics&search=technology", "label": "benign"}
+{"text": "HEAD /monitoring?product_id=33", "label": "benign"}
+{"text": "PATCH /careers?lang=en", "label": "benign"}
+{"text": "PATCH /register?category=true BODY:{\"name\": \"item_759\", \"value\": 98, \"active\": true}", "label": "benign"}
+{"text": "OPTIONS /tasks?", "label": "benign"}
+{"text": "OPTIONS /projects/1189?", "label": "benign"}
+{"text": "DELETE /calendar?start_date=false", "label": "benign"}
+{"text": "DELETE /news/7565?", "label": "benign"}
+{"text": "DELETE /releases?limit=871", "label": "benign"}
+{"text": "POST /tracking? BODY:{\"name\": \"item_209\", \"value\": 87, \"active\": true}", "label": "benign"}
+{"text": "HEAD /restore?", "label": "benign"}
+{"text": "PUT /notifications?format=html&mode=compact BODY:{\"name\": \"item_908\", \"value\": 10, \"active\": true}", "label": "benign"}
+{"text": "DELETE /order?", "label": "benign"}
+{"text": "DELETE /admin?end_date=false&page=560&theme=dark&updated_at=dev", "label": "benign"}
+{"text": "PATCH /tracking?currency=true&mode=compact&theme=detailed", "label": "benign"}
+{"text": "HEAD /mobile/app/2055?id=227&locale=zh", "label": "benign"}
+{"text": "GET /api/products?category=electronics&search=technology", "label": "benign"}
+{"text": "HEAD /tickets/edit?view=auto", "label": "benign"}
+{"text": "OPTIONS /careers/history?currency=false&format=html", "label": "benign"}
+{"text": "PATCH /payment?", "label": "benign"}
+{"text": "HEAD /download/9768/details?format=csv&lang=es&offset=589", "label": "benign"}
+{"text": "POST /help? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /api/v2/users?", "label": "benign"}
+{"text": "DELETE /features?filter=test", "label": "benign"}
+{"text": "PATCH /settings? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "POST /receipt?", "label": "benign"}
+{"text": "POST /images/2202?id=833&mode=dark&status=inactive&type=pending", "label": "benign"}
+{"text": "POST /login?mode=compact&offset=91&user_id=398", "label": "benign"}
+{"text": "OPTIONS /demo?created_at=false", "label": "benign"}
+{"text": "GET /backup?filter=false&format=pdf&mode=light&page=725", "label": "benign"}
+{"text": "OPTIONS /performance/view?status=draft&theme=auto", "label": "benign"}
+{"text": "PATCH /reports/4806/view?", "label": "benign"}
+{"text": "POST /temp/cache?created_at=prod&limit=749&version=test", "label": "benign"}
+{"text": "GET /mobile/app/7518?currency=staging&order=desc&page=691&search=false", "label": "benign"}
+{"text": "GET /security/view?filter=false", "label": "benign"}
+{"text": "HEAD /api/products/3522/view?end_date=staging&id=419", "label": "benign"}
+{"text": "PUT /media?", "label": "benign"}
+{"text": "PUT /api/v1/data?id=968&lang=fr&limit=324&mode=auto", "label": "benign"}
+{"text": "DELETE /api/v1/data?mode=auto&page=318&product_id=696", "label": "benign"}
+{"text": "POST /browse?", "label": "benign"}
+{"text": "OPTIONS /contact?created_at=prod&q=dev", "label": "benign"}
+{"text": "GET /search?id=123 BODY:type=product", "label": "benign"}
+{"text": "PUT /sessions?offset=136", "label": "benign"}
+{"text": "PATCH /cart?filter=test&type=pending", "label": "benign"}
+{"text": "PUT /item? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PUT /api/v1/data?filter=staging&q=true&type=draft", "label": "benign"}
+{"text": "PATCH /audio?mode=auto&type=pending", "label": "benign"}
+{"text": "GET /files?", "label": "benign"}
+{"text": "PUT /performance?currency=dev&version=dev&view=compact", "label": "benign"}
+{"text": "PATCH /register? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "DELETE /api/payments?id=62&order=name", "label": "benign"}
+{"text": "POST /search? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PATCH /api/orders? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /api/products/3836?id=166&mode=light&version=false", "label": "benign"}
+{"text": "GET /admin?format=xml&q=false&search=dev&timezone=true", "label": "benign"}
+{"text": "PUT /help? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PATCH /api/payments/4997?currency=dev&filter=dev&view=compact", "label": "benign"}
+{"text": "GET /security?order=id&start_date=dev&updated_at=prod", "label": "benign"}
+{"text": "PUT /admin? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /documents?id=123 BODY:type=product", "label": "benign"}
+{"text": "PATCH /features/8165?category=test&filter=prod&mode=light&user_id=864", "label": "benign"}
+{"text": "POST /api/auth?", "label": "benign"}
+{"text": "OPTIONS /forgot-password?locale=de&page=384&type=pending", "label": "benign"}
+{"text": "POST /admin/users? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PATCH /sessions/1732?mode=auto&user_id=573", "label": "benign"}
+{"text": "POST /browse? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /search?q=technology", "label": "benign"}
+{"text": "OPTIONS /schedule?lang=zh&offset=467&page=811", "label": "benign"}
+{"text": "GET /help?search=technology BODY:category=electronics", "label": "benign"}
+{"text": "GET /media?category=electronics&search=technology", "label": "benign"}
+{"text": "DELETE /api/products?", "label": "benign"}
+{"text": "POST /api/data? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /view?category=electronics&search=technology", "label": "benign"}
+{"text": "POST /monitoring?updated_at=true", "label": "benign"}
+{"text": "POST /profile/1894?", "label": "benign"}
+{"text": "POST /order? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /invoice?id=123 BODY:type=product", "label": "benign"}
+{"text": "HEAD /shop?category=true&order=id&sort=date", "label": "benign"}
+{"text": "PUT /home? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "PUT /tutorials?end_date=test&limit=641&mode=light BODY:{\"name\": \"item_479\", \"value\": 8, \"active\": true}", "label": "benign"}
+{"text": "DELETE /api/v1/data?category=false&filter=prod&format=csv&product_id=840", "label": "benign"}
+{"text": "GET /about?id=123 BODY:type=product", "label": "benign"}
+{"text": "HEAD /news?", "label": "benign"}
+{"text": "HEAD /shop/3494?", "label": "benign"}
+{"text": "PUT /api/auth?search=test BODY:{\"name\": \"item_445\", \"value\": 42, \"active\": false}", "label": "benign"}
+{"text": "GET /item?", "label": "benign"}
+{"text": "PATCH /delivery/9540?id=535&lang=es&offset=109&sort=name BODY:{\"name\": \"item_716\", \"value\": 31, \"active\": true}", "label": "benign"}
+{"text": "PATCH /products?", "label": "benign"}
+{"text": "GET /timeline?filter=dev&id=805&offset=214&version=dev", "label": "benign"}
+{"text": "DELETE /about?", "label": "benign"}
+{"text": "POST /demo?format=html&start_date=true&version=test&view=auto", "label": "benign"}
+{"text": "DELETE /invoice?", "label": "benign"}
+{"text": "POST /folders/5446?offset=44&start_date=false&user_id=878", "label": "benign"}
+{"text": "POST /download/7602? BODY:{\"name\": \"item_40\", \"value\": 12, \"active\": false}", "label": "benign"}
+{"text": "PUT /receipt? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "OPTIONS /schedule?user_id=476&version=dev", "label": "benign"}
+{"text": "OPTIONS /private/files?created_at=true&format=xml&user_id=444", "label": "benign"}
+{"text": "PUT /metrics/2165?created_at=staging&end_date=test&search=true&view=auto", "label": "benign"}
+{"text": "POST /admin/users? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /services?", "label": "benign"}
+{"text": "POST /shipping?format=json&q=prod&status=completed&type=completed BODY:{\"name\": \"item_809\", \"value\": 51, \"active\": true}", "label": "benign"}
+{"text": "PATCH /news/6188?locale=es&offset=805&sort=desc&type=draft", "label": "benign"}
+{"text": "GET /admin/settings?page=1 BODY:limit=10", "label": "benign"}
+{"text": "PUT /mobile/app/edit?end_date=staging&format=xml&lang=it BODY:{\"name\": \"item_218\", \"value\": 100, \"active\": true}", "label": "benign"}
+{"text": "PUT /images? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PUT /status/edit?", "label": "benign"}
+{"text": "HEAD /api/auth?search=prod&sort=date&status=draft&updated_at=staging", "label": "benign"}
+{"text": "HEAD /invoice?end_date=false&offset=787&user_id=551", "label": "benign"}
+{"text": "PUT /api/auth? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "DELETE /releases/9037/details?locale=en&offset=176&status=active", "label": "benign"}
+{"text": "PATCH /warehouse/7154/view?updated_at=prod BODY:{\"name\": \"item_266\", \"value\": 91, \"active\": true}", "label": "benign"}
+{"text": "PATCH /social?created_at=dev&start_date=prod", "label": "benign"}
+{"text": "GET /settings?category=electronics&search=technology", "label": "benign"}
+{"text": "OPTIONS /login?category=true&limit=180", "label": "benign"}
+{"text": "DELETE /health?", "label": "benign"}
+{"text": "POST /public/assets?", "label": "benign"}
+{"text": "POST /register? BODY:{\"username\": \"newuser\", \"email\": \"user@example.com", "label": "benign"}
+{"text": "DELETE /logout/details?format=json&start_date=prod", "label": "benign"}
+{"text": "POST /import?product_id=724 BODY:{\"name\": \"item_388\", \"value\": 22, \"active\": false}", "label": "benign"}
+{"text": "GET /forgot-password/8298?search=staging&sort=name&updated_at=dev", "label": "benign"}
+{"text": "DELETE /home?", "label": "benign"}
+{"text": "DELETE /dashboard?", "label": "benign"}
+{"text": "DELETE /blog/4634?category=staging&product_id=735&version=false", "label": "benign"}
+{"text": "POST /download? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /browse?id=123 BODY:type=product", "label": "benign"}
+{"text": "DELETE /export?format=csv&status=draft&timezone=false", "label": "benign"}
+{"text": "POST /config?format=csv&id=458&mode=detailed BODY:{\"name\": \"item_369\", \"value\": 80, \"active\": false}", "label": "benign"}
+{"text": "GET /documents?limit=10&page=1", "label": "benign"}
+{"text": "PATCH /contact? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "GET /warehouse/history?type=draft&view=dark", "label": "benign"}
+{"text": "GET /browse?category=electronics&search=technology", "label": "benign"}
+{"text": "DELETE /calendar/5323?", "label": "benign"}
+{"text": "DELETE /bugs/422?search=dev", "label": "benign"}
+{"text": "POST /api/data? BODY:{\"title\": \"New Product\", \"price\": 99.99, \"category\": \"electronics\"}", "label": "benign"}
+{"text": "PATCH /documents? BODY:{\"name\": \"John Doe\", \"email\": \"john@example.com\"}", "label": "benign"}
+{"text": "GET /contact?search=technology BODY:category=electronics", "label": "benign"}
+{"text": "HEAD /shared/documents?search=test", "label": "benign"}
+{"text": "PATCH /import?timezone=true&user_id=947 BODY:{\"name\": \"item_942\", \"value\": 90, \"active\": true}", "label": "benign"}
+{"text": "GET /api/auth?category=electronics&search=technology", "label": "benign"}
+{"text": "OPTIONS /images/5004?mode=dark&search=false", "label": "benign"}
+{"text": "OPTIONS /export/3449?currency=false&end_date=staging&id=836", "label": "benign"}
+{"text": "GET /about?limit=10&page=1", "label": "benign"}
+{"text": "POST /tablet/view/1665/edit?id=406&locale=de BODY:{\"name\": \"item_801\", \"value\": 27, \"active\": true}", "label": "benign"}
+{"text": "OPTIONS /news/3016?category=prod&filter=test&start_date=test&type=pending", "label": "benign"}
+{"text": "PUT /logs/3555?order=id&version=staging", "label": "benign"}

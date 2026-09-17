@@ -1,0 +1,93 @@
+{
+  "note": "URLs for testing the analyzer. 'label' is the ground truth from the PhiUSIIL test split (1 = phishing, 0 = legitimate) or null for hand-written URLs that are not in the dataset. 'expected' describes the model output verified on 2026-09-17 with the shipped checkpoints.",
+  "examples": [
+    {
+      "group": "Legitimate (PhiUSIIL test split)",
+      "url": "https://www.wikipedia.org",
+      "label": 0,
+      "source": "hand-written",
+      "try": {"missing_features": ["subdomain", "scheme"]},
+      "expected": "Complete: legitimate (0.1 %). With subdomain+scheme unavailable: 'None' flips to phishing (99 %), 'Training with incomplete examples' stays legitimate (2 %)."
+    },
+    {
+      "group": "Legitimate (PhiUSIIL test split)",
+      "url": "https://www.readersdigest.co.uk",
+      "label": 0,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["subdomain", "scheme"]},
+      "expected": "Complete: legitimate. With subdomain+scheme unavailable: 'None' → phishing (wrong), mitigation → legitimate (7 %)."
+    },
+    {
+      "group": "Legitimate (PhiUSIIL test split)",
+      "url": "https://www.lanazione.it",
+      "label": 0,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["subdomain", "scheme"]},
+      "expected": "Complete: legitimate. 'None' with subdomain+scheme missing → phishing; mitigation → legitimate (3 %)."
+    },
+    {
+      "group": "Legitimate (PhiUSIIL test split)",
+      "url": "https://www.csas.ed.ac.uk",
+      "label": 0,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["subdomain", "scheme"]},
+      "expected": "Legitimate under every strategy (a rare case where the baseline survives the loss of www/https)."
+    },
+    {
+      "group": "Phishing (PhiUSIIL test split)",
+      "url": "https://veriify-confirm-info.start.page/",
+      "label": 1,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["path", "scheme"]},
+      "expected": "Phishing (≥ 99 %) under every strategy."
+    },
+    {
+      "group": "Phishing (PhiUSIIL test split)",
+      "url": "http://www.altiusinstitute.in/ss/delvqe&&wpums8/bellzall.php?email=",
+      "label": 1,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["path", "query"]},
+      "expected": "Phishing under every strategy (98–100 %)."
+    },
+    {
+      "group": "Phishing (PhiUSIIL test split)",
+      "url": "https://wallets-2mz.pages.dev/",
+      "label": 1,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["domain"]},
+      "expected": "Phishing under every strategy."
+    },
+    {
+      "group": "Phishing (PhiUSIIL test split)",
+      "url": "http://www.kovacekr.ga",
+      "label": 1,
+      "source": "PhiUSIIL test split",
+      "try": {"missing_features": ["path", "scheme"]},
+      "expected": "Complete: phishing (100 %). With path+scheme unavailable: 'None' → legitimate (0.1 %, wrong), mitigation → phishing (95 %)."
+    },
+    {
+      "group": "Hand-written phishing-style",
+      "url": "http://secure-login.paypa1-verify.tk/account/update.php?id=99",
+      "label": null,
+      "source": "hand-written",
+      "try": {"missing_features": ["domain", "scheme"]},
+      "expected": "Phishing (≥ 99 %) under every strategy; the WAF also flags the equivalent request."
+    },
+    {
+      "group": "Hand-written phishing-style",
+      "url": "http://appleid-apple.com-secure-check.xyz/login",
+      "label": null,
+      "source": "hand-written",
+      "try": {"missing_features": ["tld"]},
+      "expected": "Phishing (≥ 99 %) under every strategy."
+    },
+    {
+      "group": "Known limitation (false positive)",
+      "url": "https://www.github.com/login",
+      "label": null,
+      "source": "hand-written",
+      "try": {"missing_features": []},
+      "expected": "Classified PHISHING (100 %) although it is legitimate. No legitimate URL in PhiUSIIL has a path, so any URL with a path looks like phishing to this model. Use it to explain the dataset limitation honestly."
+    }
+  ]
+}

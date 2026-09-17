@@ -22,7 +22,11 @@ SPECIAL_TOKENS = {
 }
 
 
-_TOKEN_SPLIT = re.compile(r"([/?=&:#.;,\[\]{}()<>\-_'\"|`~!@^*+\\])")
+# Explicit marker for information that is unavailable (see src/phishing).
+# It is matched before the punctuation split so it is never broken apart.
+MISSING_TOKEN = "[MISSING]"
+
+_TOKEN_SPLIT = re.compile(r"(\[MISSING\]|[/?=&:#.;,\[\]{}()<>\-_'\"|`~!@^*+\\])")
 
 
 class HTTPRequestTokenizer:
@@ -45,8 +49,12 @@ class HTTPRequestTokenizer:
                 if tok.strip() == "":
                     continue
                 freq[tok] = freq.get(tok, 0) + 1
-        # Reserve ids for special tokens
+        # Reserve ids for special tokens, then the missing-information marker
         next_id = len(SPECIAL_TOKENS)
+        if MISSING_TOKEN not in self.token_to_id:
+            self.token_to_id[MISSING_TOKEN] = next_id
+            self.id_to_token[next_id] = MISSING_TOKEN
+            next_id += 1
         for token, _count in sorted(freq.items(), key=lambda x: (-x[1], x[0])):
             if token in self.token_to_id:
                 continue
@@ -127,12 +135,17 @@ class HTTPRequestTokenizer:
         token_to_id = dict(data.get("token_to_id", {}))
         # Ensure special tokens exist at required IDs
         token_to_id.update(SPECIAL_TOKENS)
+        # Vocabularies built before the marker existed: append it at the next free id
+        if MISSING_TOKEN not in token_to_id:
+            token_to_id[MISSING_TOKEN] = max(token_to_id.values()) + 1
         self.token_to_id = token_to_id
         self.id_to_token = {i: t for t, i in token_to_id.items()}
 
 
 __all__ = [
     "HTTPRequestTokenizer",
+    "MISSING_TOKEN",
+    "SPECIAL_TOKENS",
 ]
 
 

@@ -1,3 +1,32 @@
 2025-10-03 20:03:06.597 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
 2025-10-03 20:04:01.621 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
 2025-10-03 20:11:38.667 | WARNING  | src.api.detection_api:load_model:139 - Model checkpoint not found, API will return dummy responses until trained.
+2026-09-16 21:36:19.317 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-16 21:36:40.160 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-16 21:43:45.916 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-16 21:47:42.504 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-16 22:20:53.755 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-16 22:21:33.897 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:02:36.974 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:02:43.812 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:08:18.674 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:12:38.418 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:12:50.740 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:15:00.256 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:22:43.630 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:25:38.963 | INFO     | src.api.detection_api:load_model:155 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:40:07.352 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:40:21.612 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 01:42:42.892 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 19:50:36.580 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:06:57.425 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:34:45.166 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:36:43.578 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:40:47.231 | INFO     | src.api.detection_api:load_model:180 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:42:21.220 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:43:04.290 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:47:11.124 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:51:35.608 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:52:10.583 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:53:07.060 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}
+2026-09-17 23:53:56.906 | INFO     | src.api.detection_api:load_model:190 - URL classifiers loaded: {'baseline': True, 'robust': True}

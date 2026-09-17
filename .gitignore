@@ -1,0 +1,2 @@
+# Release zips built by scripts/package_release.sh
+transformer-waf-release-*.zip

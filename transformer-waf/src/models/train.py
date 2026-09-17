@@ -9,6 +9,8 @@ from torch.utils.data import Dataset, DataLoader
 import json
 import os
 
+from .transformer_model import WAFTransformer
+
 
 class SequenceDataset(Dataset):
     def __init__(self, sequences: List[List[int]], attention_masks: List[List[int]]):
@@ -46,16 +48,12 @@ def load_training_data(data_path: str) -> Dataset:
 
 
 def _loss_fn(logits: torch.Tensor, target_ids: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
-    bsz, seqlen, vocab = logits.size()
-    loss = nn.functional.cross_entropy(logits.view(bsz * seqlen, vocab), target_ids.view(-1), reduction="none")
-    loss = loss.view(bsz, seqlen)
-    mask = attention_mask.float()
-    masked = (loss * mask).sum() / (mask.sum() + 1e-8)
-    return masked
+    # Batch-mean of the per-sequence next-token NLL used as the anomaly score.
+    return WAFTransformer.sequence_nll(logits, target_ids, attention_mask).mean()
 
 
-def train_model(model: nn.Module, train_loader: DataLoader, val_loader: DataLoader, epochs: int, device: torch.device) -> None:
-    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+def train_model(model: nn.Module, train_loader: DataLoader, val_loader: DataLoader, epochs: int, device: torch.device, lr: float = 1e-4) -> None:
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(epochs, 1))
     best_val = float("inf")
     patience = 5

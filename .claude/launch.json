@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "waf-detection-api",
+      "runtimeExecutable": "venv/bin/python",
+      "runtimeArgs": ["-m", "uvicorn", "src.api.detection_api:app", "--host", "127.0.0.1", "--port", "8000"],
+      "cwd": "transformer-waf",
+      "env": {"PYTHONPATH": "."},
+      "port": 8000
+    }
+  ]
+}

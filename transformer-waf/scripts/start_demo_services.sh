@@ -6,7 +6,7 @@
 echo "🚀 Starting SIH WAF Demo Services"
 echo "================================="
 
-PROJECT_ROOT="/Users/kuldeepraj/SIH Part 2/transformer-waf"
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 # Kill any existing processes on the ports

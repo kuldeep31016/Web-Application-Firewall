@@ -15,7 +15,7 @@ send_and_parse() {
   response=$(curl -s -X POST "$URL" \
     -H "Content-Type: application/json" -H "X-API-Key: $API_KEY" \
     -d @"$payload_file")
-  python3 - <<PY - "$response"
+  python3 - "$response" <<PY
 import sys, json
 resp = json.loads(sys.argv[1])
 print(json.dumps({

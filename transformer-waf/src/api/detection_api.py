@@ -15,7 +15,10 @@ from fastapi.security.api_key import APIKeyHeader
 
 from ..models.inference import InferenceEngine
 from ..preprocessing.tokenizer import HTTPRequestTokenizer
+from ..preprocessing.compose import compose_request_text
 from ..storage.detection_store import detection_store
+from ..phishing.service import PhishingService
+from . import phishing_routes
 from ..utils.config import load_config, CONFIG_PATH
 from ..utils.logger import logger, setup_logging
 import json as _json
@@ -28,6 +31,15 @@ class DetectionRequest(BaseModel):
     query_params: Dict[str, str]
     headers: Dict[str, str]
     body: str = ""
+
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {"method": "GET", "path": "/search", "query_params": {"q": "<script>alert(1)</script>"}, "headers": {}, "body": ""},
+                {"method": "GET", "path": "/products", "query_params": {"page": "1", "sort": "asc"}, "headers": {}, "body": ""},
+            ]
+        }
+    }
 
 
 class DetectionResponse(BaseModel):
@@ -62,7 +74,23 @@ class DetectionStatsResponse(BaseModel):
     last_detection: Optional[float]
 
 
-app = FastAPI(title="WAF Detection API")
+app = FastAPI(
+    title="Transformer WAF — Detection & Research API",
+    description=(
+        "**Phishing URL detection under incomplete information** (`/detect/url`, `/experiment/*`) "
+        "plus the original **WAF request anomaly model** (`/detect`, `/detect/batch`, `/logs`, `/replay`).\n\n"
+        "Every endpoint needs the header `X-API-Key: dev-key` (click *Authorize*).\n\n"
+        "cURL examples:\n\n"
+        "```\n"
+        "# score an HTTP request with the WAF anomaly model\n"
+        "curl -s -X POST http://localhost:8000/detect -H 'X-API-Key: dev-key' -H 'Content-Type: application/json' \\\n"
+        "  -d '{\"method\":\"GET\",\"path\":\"/search\",\"query_params\":{\"q\":\"<script>alert(1)</script>\"},\"headers\":{},\"body\":\"\"}'\n\n"
+        "# classify a URL with two segments unavailable, using the robust model\n"
+        "curl -s -X POST http://localhost:8000/detect/url -H 'X-API-Key: dev-key' -H 'Content-Type: application/json' \\\n"
+        "  -d '{\"url\":\"https://www.readersdigest.co.uk\",\"missing_features\":[\"subdomain\",\"scheme\"],\"strategy\":\"augmented_training\"}'\n"
+        "```"
+    ),
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -71,10 +99,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount static files for the detection history UI
+# Mount static files for the web UI
 static_path = _Path(__file__).parent / "static"
 static_path.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(static_path)), name="static")
+
+
+@app.middleware("http")
+async def _no_cache_ui(request: Request, call_next):
+    """UI assets and pages change between releases; force browsers to revalidate
+    (ETag/Last-Modified still make unchanged files a cheap 304)."""
+    response = await call_next(request)
+    if request.url.path.startswith("/static/") or request.url.path in ("/", "/analyze", "/research", "/history"):
+        response.headers["Cache-Control"] = "no-cache, must-revalidate"
+    return response
+
+# Research module (phishing URL detection under incomplete information).
+# Shares this app, port and API key; see src/api/phishing_routes.py.
+PHISHING = PhishingService(threshold=0.5)
 
 
 CONFIG = load_config(CONFIG_PATH)
@@ -139,6 +181,14 @@ async def load_model() -> None:  # noqa: D401
         logger.warning("Model checkpoint not found, API will return dummy responses until trained.")
         ENGINE.model = None  # type: ignore[assignment]
     TOKENIZER = HTTPRequestTokenizer(vocab_size=int(CONFIG.get("model", {}).get("vocab_size", 10000)))
+    vocab_path = os.path.join(os.path.dirname(model_path), "vocab.json")
+    if os.path.exists(vocab_path):
+        TOKENIZER.load_vocab(vocab_path)
+    else:
+        logger.warning("Vocabulary file not found at {}; every token will map to [UNK].", vocab_path)
+    loaded = PHISHING.load_models()
+    logger.info("URL classifiers loaded: {}", loaded)
+    PHISHING.set_waf_scorer(_waf_score_request)
 
 
 @app.get("/health")
@@ -162,9 +212,7 @@ async def update_threshold(value: float, _: bool = Security(verify_api_key)) -> 
 
 def _encode_request(payload: DetectionRequest, max_len: int) -> Dict[str, List[int]]:
     assert TOKENIZER is not None
-    composed = f"{payload.method} {payload.path}?" + "&".join(f"{k}={v}" for k, v in sorted(payload.query_params.items()))
-    if payload.body:
-        composed += " BODY:" + payload.body
+    composed = compose_request_text(payload.method, payload.path, payload.query_params, payload.body)
     return TOKENIZER.encode(composed, max_length=max_len)
 
 
@@ -373,7 +421,7 @@ async def get_detection_logs(
             threshold=d["threshold"],
             client_ip_hash=d["client_ip_hash"],
             notes=d["notes"],
-            created_at=d["created_at"]
+            created_at=str(d["created_at"])
         )
         for d in detections
     ]
@@ -486,6 +534,54 @@ async def cleanup_old_records(
     """
     deleted_count = detection_store.cleanup_old_records(retention_days)
     return {"deleted_records": deleted_count}
+
+
+def _waf_score_request(method: str, path: str, query_params: Dict[str, str], body: str) -> Optional[Dict[str, object]]:
+    """Score a request with the WAF anomaly model (used by /detect/url). Returns None if no model."""
+    if ENGINE is None or ENGINE.model is None or TOKENIZER is None:
+        return None
+    max_len_cfg = int(CONFIG.get("model", {}).get("max_seq_length", 512))
+    max_len_model = int(getattr(getattr(ENGINE.model, "positional", None), "num_embeddings", max_len_cfg))
+    payload = DetectionRequest(method=method, path=path, query_params=query_params, headers={}, body=body)
+    encoded = _encode_request(payload, min(max_len_cfg, max_len_model))
+    result = ENGINE.predict_single(encoded["input_ids"], encoded["attention_mask"])
+    return {
+        "anomaly_score": float(result["anomaly_score"]),  # type: ignore[index]
+        "is_anomaly": bool(result["is_anomaly"]),  # type: ignore[index]
+        "threshold": float(ENGINE.threshold),
+        "request_text": compose_request_text(method, path, query_params, body),
+    }
+
+
+phishing_routes.configure(PHISHING)
+app.include_router(phishing_routes.router, dependencies=[Security(verify_api_key)])
+
+
+@app.get("/")
+async def landing_ui():
+    """Serve the overview / landing page."""
+    return FileResponse(_Path(__file__).parent / "static" / "landing.html")
+
+
+@app.get("/analyze")
+async def analyze_ui():
+    """Serve the analysis UI (URL classifier + WAF request scoring)."""
+    return FileResponse(_Path(__file__).parent / "static" / "index.html")
+
+
+@app.get("/documentation")
+async def documentation_pdf():
+    """Serve the hand-over document (docs/HANDOVER.pdf)."""
+    pdf = _Path(__file__).resolve().parents[2] / "docs" / "HANDOVER.pdf"
+    if not pdf.exists():
+        raise HTTPException(status_code=404, detail="docs/HANDOVER.pdf not found")
+    return FileResponse(pdf, media_type="application/pdf")
+
+
+@app.get("/research")
+async def research_ui():
+    """Serve the robustness-experiment UI."""
+    return FileResponse(_Path(__file__).parent / "static" / "research.html")
 
 
 @app.get("/history")

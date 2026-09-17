@@ -47,6 +47,7 @@ def main() -> None:
     parser.add_argument("--layers", type=int, default=3)
     parser.add_argument("--ff", type=int, default=256)
     parser.add_argument("--maxlen", type=int, default=128)
+    parser.add_argument("--lr", type=float, default=1e-4)
     args = parser.parse_args()
 
     ds = load_jsonl(args.data)
@@ -72,7 +73,7 @@ def main() -> None:
         max_len=args.maxlen,
     )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    train_model(model, train_loader, val_loader, epochs=args.epochs, device=device)
+    train_model(model, train_loader, val_loader, epochs=args.epochs, device=device, lr=args.lr)
 
     os.makedirs("models/checkpoints", exist_ok=True)
     ckpt = {

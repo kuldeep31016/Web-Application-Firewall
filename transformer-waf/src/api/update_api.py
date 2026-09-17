@@ -49,6 +49,7 @@ def _rotate_versions(new_path: str) -> None:
 def _train_incremental(checkpoint_in: str, checkpoint_out: str, delta_path: str | None = None) -> None:
     """Fine-tune on delta benign data only if provided; else do a short full fine-tune."""
     import subprocess
+    import sys
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     if delta_path and os.path.exists(os.path.join(root, delta_path)):
         # Temporarily swap train.jsonl with delta for a short run
@@ -59,12 +60,12 @@ def _train_incremental(checkpoint_in: str, checkpoint_out: str, delta_path: str 
             shutil.copyfile(train_file, tmp_backup)
         shutil.copyfile(os.path.join(root, delta_path), train_file)
         try:
-            subprocess.check_call(["python", "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
+            subprocess.check_call([sys.executable, "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
         finally:
             if os.path.exists(tmp_backup):
                 shutil.copyfile(tmp_backup, train_file)
     else:
-        subprocess.check_call(["python", "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
+        subprocess.check_call([sys.executable, "scripts/train_quick.py", "--epochs", "2", "--batch", "64"], cwd=root)
     src = os.path.join(root, "models", "checkpoints", "best.pt")
     shutil.copyfile(src, checkpoint_out)
 
