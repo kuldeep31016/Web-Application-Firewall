@@ -18,7 +18,8 @@ from ..preprocessing.tokenizer import HTTPRequestTokenizer
 from ..preprocessing.compose import compose_request_text
 from ..storage.detection_store import detection_store
 from ..phishing.service import PhishingService
-from . import phishing_routes
+from . import phishing_routes, analytics_routes
+from ..analytics.service import AnalyticsService
 from ..utils.config import load_config, CONFIG_PATH
 from ..utils.logger import logger, setup_logging
 import json as _json
@@ -110,7 +111,7 @@ async def _no_cache_ui(request: Request, call_next):
     """UI assets and pages change between releases; force browsers to revalidate
     (ETag/Last-Modified still make unchanged files a cheap 304)."""
     response = await call_next(request)
-    if request.url.path.startswith("/static/") or request.url.path in ("/", "/analyze", "/research", "/history"):
+    if request.url.path.startswith("/static/") or request.url.path in ("/", "/analyze", "/research", "/history", "/analytics"):
         response.headers["Cache-Control"] = "no-cache, must-revalidate"
     return response
 
@@ -556,6 +557,10 @@ def _waf_score_request(method: str, path: str, query_params: Dict[str, str], bod
 phishing_routes.configure(PHISHING)
 app.include_router(phishing_routes.router, dependencies=[Security(verify_api_key)])
 
+# Analytics dashboard data (aggregates over logs/detections.db); same API key.
+analytics_routes.configure(AnalyticsService(detection_store._db_path))
+app.include_router(analytics_routes.router, dependencies=[Security(verify_api_key)])
+
 
 @app.get("/")
 async def landing_ui():
@@ -595,3 +600,10 @@ async def detection_history_ui():
     return FileResponse(static_file)
 
 
+
+
+
+@app.get("/analytics")
+async def analytics_ui():
+    """Serve the analytics & insights dashboard."""
+    return FileResponse(_Path(__file__).parent / "static" / "analytics.html")
