@@ -16,7 +16,7 @@ original WAF:
 The anomaly model is **not** a phishing classifier and the UI never presents it
 as one. Both are reported side by side on the Analyze page.
 
-Quick links (local): [Overview](http://localhost:8000/) · [Analyze](http://localhost:8000/analyze) · [Research](http://localhost:8000/research) · [History](http://localhost:8000/history) · [API docs](http://localhost:8000/docs)
+Quick links (local): [Overview](http://localhost:8000/) · [Analyze](http://localhost:8000/analyze) · [Research](http://localhost:8000/research) · [History](http://localhost:8000/history) · [Analytics](http://localhost:8000/analytics) ([guide](docs/ANALYTICS_GUIDE.pdf)) · [API docs](http://localhost:8000/docs)
 
 Hand-over documents (Markdown + PDF) are in [`docs/`](docs/): **HANDOVER** (how it all fits together), **DEMO_SCRIPT** (5-minute click-by-click demo) and **EXAMPLES** (verified test URLs and expected results).
 
